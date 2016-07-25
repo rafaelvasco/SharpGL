@@ -6,10 +6,12 @@ namespace SharpGL
 {
     /// <summary>
     /// 
+    /// 
     /// OpenGL 4 Lightweight Bindings
     /// 
     /// Thanks to the work of @giawa at
     /// https://github.com/giawa/opengl4csharp
+    /// 
     /// 
     /// </summary>
 
