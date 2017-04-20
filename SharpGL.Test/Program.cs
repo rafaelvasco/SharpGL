@@ -7,17 +7,15 @@ namespace SharpGL.Test
     {
         static void Main()
         {
-
+            
             if (!Glfw.Init())
             {
                 Glfw.Terminate();
                 throw new Exception("GLFW Failed to Initialize");
             }
 
-            
             Glfw.WindowHint(WindowAttrib.Resizable, false);
             
-
             var window = Glfw.CreateWindow(1024, 768, "Test");
 
             if (window.Equals(GlfwWindow.Null))
@@ -167,6 +165,4 @@ namespace SharpGL.Test
             Glfw.Terminate();
         }
     }
-
-    
 }
