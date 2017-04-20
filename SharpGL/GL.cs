@@ -1,38 +1,27 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace SharpGL
 {
-    /// <summary>
-    /// 
-    /// 
-    /// OpenGL 4 Lightweight Bindings
-    /// 
-    /// Thanks to the work of @giawa at
-    /// https://github.com/giawa/opengl4csharp
-    /// 
-    /// 
-    /// </summary>
-
-    public partial class GL
+    // Automatically generated from GLCore.cs using SharpGL.Generator
+    partial class GL
     {
         public static void ActiveShaderProgram(UInt32 pipeline, UInt32 program)
         {
             Delegates.glActiveShaderProgram(pipeline, program);
         }
 
+        [Obsolete("ActiveTexture(TextureUnit) is deprecated, please use ActiveTexture(int) instead.")]
         public static void ActiveTexture(TextureUnit texture)
         {
-            Delegates.glActiveTexture(texture);
+            Delegates.glActiveTexture((int)texture);
         }
-
         public static void AttachShader(UInt32 program, UInt32 shader)
         {
             Delegates.glAttachShader(program, shader);
         }
 
-        public static void BeginConditionalRender(UInt32 id, ConditionalRenderType mode)
+        public static void BeginConditionalRender(UInt32 id, SharpGL.ConditionalRenderType mode)
         {
             Delegates.glBeginConditionalRender(id, mode);
         }
@@ -42,27 +31,27 @@ namespace SharpGL
             Delegates.glEndConditionalRender();
         }
 
-        public static void BeginQuery(QueryTarget target, UInt32 id)
+        public static void BeginQuery(SharpGL.QueryTarget target, UInt32 id)
         {
             Delegates.glBeginQuery(target, id);
         }
 
-        public static void EndQuery(QueryTarget target)
+        public static void EndQuery(SharpGL.QueryTarget target)
         {
             Delegates.glEndQuery(target);
         }
 
-        public static void BeginQueryIndexed(UInt32 target, UInt32 index, UInt32 id)
+        public static void BeginQueryIndexed(SharpGL.QueryTarget target, UInt32 index, UInt32 id)
         {
             Delegates.glBeginQueryIndexed(target, index, id);
         }
 
-        public static void EndQueryIndexed(QueryTarget target, UInt32 index)
+        public static void EndQueryIndexed(SharpGL.QueryTarget target, UInt32 index)
         {
             Delegates.glEndQueryIndexed(target, index);
         }
 
-        public static void BeginTransformFeedback(BeginFeedbackMode primitiveMode)
+        public static void BeginTransformFeedback(SharpGL.BeginFeedbackMode primitiveMode)
         {
             Delegates.glBeginTransformFeedback(primitiveMode);
         }
@@ -79,16 +68,16 @@ namespace SharpGL
 
         public static void BindAttribLocation(UInt32 program, Int32 index, String name)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glBindAttribLocation(program, (UInt32)index, name);
         }
 
-        public static void BindBuffer(BufferTarget target, UInt32 buffer)
+        public static void BindBuffer(SharpGL.BufferTarget target, UInt32 buffer)
         {
             Delegates.glBindBuffer(target, buffer);
         }
 
-        public static void BindBufferBase(BufferTarget target, UInt32 index, UInt32 buffer)
+        public static void BindBufferBase(SharpGL.BufferTarget target, UInt32 index, UInt32 buffer)
         {
             Delegates.glBindBufferBase(target, index, buffer);
         }
@@ -118,7 +107,7 @@ namespace SharpGL
             Delegates.glBindFragDataLocationIndexed(program, colorNumber, index, name);
         }
 
-        public static void BindFramebuffer(FramebufferTarget target, UInt32 framebuffer)
+        public static void BindFramebuffer(SharpGL.FramebufferTarget target, UInt32 framebuffer)
         {
             Delegates.glBindFramebuffer(target, framebuffer);
         }
@@ -138,7 +127,7 @@ namespace SharpGL
             Delegates.glBindProgramPipeline(pipeline);
         }
 
-        public static void BindRenderbuffer(RenderbufferTarget target, UInt32 renderbuffer)
+        public static void BindRenderbuffer(SharpGL.RenderbufferTarget target, UInt32 renderbuffer)
         {
             Delegates.glBindRenderbuffer(target, renderbuffer);
         }
@@ -153,7 +142,7 @@ namespace SharpGL
             Delegates.glBindSamplers(first, count, samplers);
         }
 
-        public static void BindTexture(TextureTarget target, UInt32 texture)
+        public static void BindTexture(SharpGL.TextureTarget target, UInt32 texture)
         {
             Delegates.glBindTexture(target, texture);
         }
@@ -168,14 +157,14 @@ namespace SharpGL
             Delegates.glBindTextureUnit(unit, texture);
         }
 
-        public static void BindTransformFeedback(NvTransformFeedback2 target, UInt32 id)
+        public static void BindTransformFeedback(SharpGL.NvTransformFeedback2 target, UInt32 id)
         {
             Delegates.glBindTransformFeedback(target, id);
         }
 
-        public static void BindVertexArray(UInt32 vao)
+        public static void BindVertexArray(UInt32 array)
         {
-            Delegates.glBindVertexArray(vao);
+            Delegates.glBindVertexArray(array);
         }
 
         public static void BindVertexBuffer(UInt32 bindingindex, UInt32 buffer, IntPtr offset, IntPtr stride)
@@ -203,7 +192,7 @@ namespace SharpGL
             Delegates.glBlendColor(red, green, blue, alpha);
         }
 
-        public static void BlendEquation(BlendEquationMode mode)
+        public static void BlendEquation(SharpGL.BlendEquationMode mode)
         {
             Delegates.glBlendEquation(mode);
         }
@@ -213,7 +202,7 @@ namespace SharpGL
             Delegates.glBlendEquationi(buf, mode);
         }
 
-        public static void BlendEquationSeparate(BlendEquationMode modeRGB, BlendEquationMode modeAlpha)
+        public static void BlendEquationSeparate(SharpGL.BlendEquationMode modeRGB, SharpGL.BlendEquationMode modeAlpha)
         {
             Delegates.glBlendEquationSeparate(modeRGB, modeAlpha);
         }
@@ -223,7 +212,7 @@ namespace SharpGL
             Delegates.glBlendEquationSeparatei(buf, modeRGB, modeAlpha);
         }
 
-        public static void BlendFunc(BlendingFactorSrc sfactor, BlendingFactorDest dfactor)
+        public static void BlendFunc(SharpGL.BlendingFactorSrc sfactor, SharpGL.BlendingFactorDest dfactor)
         {
             Delegates.glBlendFunc(sfactor, dfactor);
         }
@@ -233,7 +222,7 @@ namespace SharpGL
             Delegates.glBlendFunci(buf, sfactor, dfactor);
         }
 
-        public static void BlendFuncSeparate(BlendingFactorSrc srcRGB, BlendingFactorDest dstRGB, BlendingFactorSrc srcAlpha, BlendingFactorDest dstAlpha)
+        public static void BlendFuncSeparate(SharpGL.BlendingFactorSrc srcRGB, SharpGL.BlendingFactorDest dstRGB, SharpGL.BlendingFactorSrc srcAlpha, SharpGL.BlendingFactorDest dstAlpha)
         {
             Delegates.glBlendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
         }
@@ -243,22 +232,22 @@ namespace SharpGL
             Delegates.glBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
         }
 
-        public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, ClearBufferMask mask, BlitFramebufferFilter filter)
+        public static void BlitFramebuffer(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, SharpGL.ClearBufferMask mask, SharpGL.BlitFramebufferFilter filter)
         {
             Delegates.glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
         }
 
-        public static void BlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, ClearBufferMask mask, BlitFramebufferFilter filter)
+        public static void BlitNamedFramebuffer(UInt32 readFramebuffer, UInt32 drawFramebuffer, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, SharpGL.ClearBufferMask mask, SharpGL.BlitFramebufferFilter filter)
         {
             Delegates.glBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
         }
 
-        public static void BufferData(BufferTarget target, IntPtr size, IntPtr data, BufferUsageHint usage)
+        public static void BufferData(SharpGL.BufferTarget target, IntPtr size, IntPtr data, SharpGL.BufferUsageHint usage)
         {
             Delegates.glBufferData(target, size, data, usage);
         }
 
-        public static void NamedBufferData(UInt32 buffer, Int32 size, IntPtr data, BufferUsageHint usage)
+        public static void NamedBufferData(UInt32 buffer, Int32 size, IntPtr data, SharpGL.BufferUsageHint usage)
         {
             Delegates.glNamedBufferData(buffer, size, data, usage);
         }
@@ -273,7 +262,7 @@ namespace SharpGL
             Delegates.glNamedBufferStorage(buffer, size, data, flags);
         }
 
-        public static void BufferSubData(BufferTarget target, IntPtr offset, IntPtr size, IntPtr data)
+        public static void BufferSubData(SharpGL.BufferTarget target, IntPtr offset, IntPtr size, IntPtr data)
         {
             Delegates.glBufferSubData(target, offset, size, data);
         }
@@ -283,22 +272,22 @@ namespace SharpGL
             Delegates.glNamedBufferSubData(buffer, offset, size, data);
         }
 
-        public static FramebufferErrorCode CheckFramebufferStatus(FramebufferTarget target)
+        public static FramebufferErrorCode CheckFramebufferStatus(SharpGL.FramebufferTarget target)
         {
             return Delegates.glCheckFramebufferStatus(target);
         }
 
-        public static FramebufferErrorCode CheckNamedFramebufferStatus(UInt32 framebuffer, FramebufferTarget target)
+        public static FramebufferErrorCode CheckNamedFramebufferStatus(UInt32 framebuffer, SharpGL.FramebufferTarget target)
         {
             return Delegates.glCheckNamedFramebufferStatus(framebuffer, target);
         }
 
-        public static void ClampColor(ClampColorTarget target, ClampColorMode clamp)
+        public static void ClampColor(SharpGL.ClampColorTarget target, SharpGL.ClampColorMode clamp)
         {
             Delegates.glClampColor(target, clamp);
         }
 
-        public static void Clear(ClearBufferMask mask)
+        public static void Clear(SharpGL.ClearBufferMask mask)
         {
             Delegates.glClear(mask);
         }
@@ -318,7 +307,7 @@ namespace SharpGL
             Delegates.glClearBufferfv(buffer, drawbuffer, value);
         }
 
-        public static void ClearBufferfi(ClearBuffer buffer, Int32 drawbuffer, Single depth, Int32 stencil)
+        public static void ClearBufferfi(SharpGL.ClearBuffer buffer, Int32 drawbuffer, Single depth, Int32 stencil)
         {
             Delegates.glClearBufferfi(buffer, drawbuffer, depth, stencil);
         }
@@ -338,9 +327,9 @@ namespace SharpGL
             Delegates.glClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, value);
         }
 
-        public static void ClearNamedFramebufferfi(UInt32 framebuffer, ClearBuffer buffer, Single depth, Int32 stencil)
+        public static void ClearNamedFramebufferfi(UInt32 framebuffer, ClearBuffer buffer, Int32 drawbuffer, Single depth, Int32 stencil)
         {
-            Delegates.glClearNamedFramebufferfi(framebuffer, buffer, depth, stencil);
+            Delegates.glClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil);
         }
 
         public static void ClearBufferData(BufferTarget target, SizedInternalFormat internalFormat, PixelInternalFormat format, PixelType type, IntPtr data)
@@ -418,22 +407,22 @@ namespace SharpGL
             Delegates.glCompileShader(shader);
         }
 
-        public static void CompressedTexImage1D(TextureTarget target, Int32 level, PixelInternalFormat internalFormat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
+        public static void CompressedTexImage1D(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelInternalFormat internalFormat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
         {
             Delegates.glCompressedTexImage1D(target, level, internalFormat, width, border, imageSize, data);
         }
 
-        public static void CompressedTexImage2D(TextureTarget target, Int32 level, PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
+        public static void CompressedTexImage2D(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
         {
             Delegates.glCompressedTexImage2D(target, level, internalFormat, width, height, border, imageSize, data);
         }
 
-        public static void CompressedTexImage3D(TextureTarget target, Int32 level, PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
+        public static void CompressedTexImage3D(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
         {
             Delegates.glCompressedTexImage3D(target, level, internalFormat, width, height, depth, border, imageSize, data);
         }
 
-        public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
+        public static void CompressedTexSubImage1D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 width, SharpGL.PixelFormat format, Int32 imageSize, IntPtr data)
         {
             Delegates.glCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
         }
@@ -443,7 +432,7 @@ namespace SharpGL
             Delegates.glCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data);
         }
 
-        public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
+        public static void CompressedTexSubImage2D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, SharpGL.PixelFormat format, Int32 imageSize, IntPtr data)
         {
             Delegates.glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
         }
@@ -453,7 +442,7 @@ namespace SharpGL
             Delegates.glCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data);
         }
 
-        public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
+        public static void CompressedTexSubImage3D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, SharpGL.PixelFormat format, Int32 imageSize, IntPtr data)
         {
             Delegates.glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
         }
@@ -463,7 +452,7 @@ namespace SharpGL
             Delegates.glCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
         }
 
-        public static void CopyBufferSubData(BufferTarget readTarget, BufferTarget writeTarget, IntPtr readOffset, IntPtr writeOffset, IntPtr size)
+        public static void CopyBufferSubData(SharpGL.BufferTarget readTarget, SharpGL.BufferTarget writeTarget, IntPtr readOffset, IntPtr writeOffset, IntPtr size)
         {
             Delegates.glCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
         }
@@ -478,17 +467,17 @@ namespace SharpGL
             Delegates.glCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
         }
 
-        public static void CopyTexImage1D(TextureTarget target, Int32 level, PixelInternalFormat internalFormat, Int32 x, Int32 y, Int32 width, Int32 border)
+        public static void CopyTexImage1D(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelInternalFormat internalFormat, Int32 x, Int32 y, Int32 width, Int32 border)
         {
             Delegates.glCopyTexImage1D(target, level, internalFormat, x, y, width, border);
         }
 
-        public static void CopyTexImage2D(TextureTarget target, Int32 level, PixelInternalFormat internalFormat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
+        public static void CopyTexImage2D(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelInternalFormat internalFormat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
         {
             Delegates.glCopyTexImage2D(target, level, internalFormat, x, y, width, height, border);
         }
 
-        public static void CopyTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
+        public static void CopyTexSubImage1D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
         {
             Delegates.glCopyTexSubImage1D(target, level, xoffset, x, y, width);
         }
@@ -498,7 +487,7 @@ namespace SharpGL
             Delegates.glCopyTextureSubImage1D(texture, level, xoffset, x, y, width);
         }
 
-        public static void CopyTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+        public static void CopyTexSubImage2D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
         {
             Delegates.glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
         }
@@ -508,7 +497,7 @@ namespace SharpGL
             Delegates.glCopyTextureSubImage2D(texture, level, xoffset, yoffset, x, y, width, height);
         }
 
-        public static void CopyTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+        public static void CopyTexSubImage3D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
         {
             Delegates.glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
         }
@@ -553,7 +542,7 @@ namespace SharpGL
             Delegates.glCreateSamplers(n, samplers);
         }
 
-        public static UInt32 CreateShader(ShaderType shaderType)
+        public static UInt32 CreateShader(SharpGL.ShaderType shaderType)
         {
             return Delegates.glCreateShader(shaderType);
         }
@@ -578,7 +567,7 @@ namespace SharpGL
             Delegates.glCreateVertexArrays(n, arrays);
         }
 
-        public static void CullFace(CullFaceMode mode)
+        public static void CullFace(SharpGL.CullFaceMode mode)
         {
             Delegates.glCullFace(mode);
         }
@@ -643,7 +632,7 @@ namespace SharpGL
             Delegates.glDeleteVertexArrays(n, arrays);
         }
 
-        public static void DepthFunc(DepthFunction func)
+        public static void DepthFunc(SharpGL.DepthFunction func)
         {
             Delegates.glDepthFunc(func);
         }
@@ -688,17 +677,17 @@ namespace SharpGL
             Delegates.glDispatchComputeIndirect(indirect);
         }
 
-        public static void DrawArrays(BeginMode mode, Int32 first, Int32 count)
+        public static void DrawArrays(SharpGL.BeginMode mode, Int32 first, Int32 count)
         {
             Delegates.glDrawArrays(mode, first, count);
         }
 
-        public static void DrawArraysIndirect(BeginMode mode, IntPtr indirect)
+        public static void DrawArraysIndirect(SharpGL.BeginMode mode, IntPtr indirect)
         {
             Delegates.glDrawArraysIndirect(mode, indirect);
         }
 
-        public static void DrawArraysInstanced(BeginMode mode, Int32 first, Int32 count, Int32 primcount)
+        public static void DrawArraysInstanced(SharpGL.BeginMode mode, Int32 first, Int32 count, Int32 primcount)
         {
             Delegates.glDrawArraysInstanced(mode, first, count, primcount);
         }
@@ -718,7 +707,7 @@ namespace SharpGL
             Delegates.glNamedFramebufferDrawBuffer(framebuffer, buf);
         }
 
-        public static void DrawBuffers(Int32 n, DrawBuffersEnum[] bufs)
+        public static void DrawBuffers(Int32 n, SharpGL.DrawBuffersEnum[] bufs)
         {
             Delegates.glDrawBuffers(n, bufs);
         }
@@ -728,22 +717,22 @@ namespace SharpGL
             Delegates.glNamedFramebufferDrawBuffers(framebuffer, n, bufs);
         }
 
-        public static void DrawElements(BeginMode mode, Int32 count, DrawElementsType type, IntPtr indices)
+        public static void DrawElements(SharpGL.BeginMode mode, Int32 count, SharpGL.DrawElementsType type, IntPtr indices)
         {
             Delegates.glDrawElements(mode, count, type, indices);
         }
 
-        public static void DrawElementsBaseVertex(BeginMode mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
+        public static void DrawElementsBaseVertex(SharpGL.BeginMode mode, Int32 count, SharpGL.DrawElementsType type, IntPtr indices, Int32 basevertex)
         {
             Delegates.glDrawElementsBaseVertex(mode, count, type, indices, basevertex);
         }
 
-        public static void DrawElementsIndirect(BeginMode mode, DrawElementsType type, IntPtr indirect)
+        public static void DrawElementsIndirect(SharpGL.BeginMode mode, SharpGL.DrawElementsType type, IntPtr indirect)
         {
             Delegates.glDrawElementsIndirect(mode, type, indirect);
         }
 
-        public static void DrawElementsInstanced(BeginMode mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 primcount)
+        public static void DrawElementsInstanced(SharpGL.BeginMode mode, Int32 count, SharpGL.DrawElementsType type, IntPtr indices, Int32 primcount)
         {
             Delegates.glDrawElementsInstanced(mode, count, type, indices, primcount);
         }
@@ -753,7 +742,7 @@ namespace SharpGL
             Delegates.glDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
         }
 
-        public static void DrawElementsInstancedBaseVertex(BeginMode mode, Int32 count, DrawElementsType type, IntPtr indices, Int32 primcount, Int32 basevertex)
+        public static void DrawElementsInstancedBaseVertex(SharpGL.BeginMode mode, Int32 count, SharpGL.DrawElementsType type, IntPtr indices, Int32 primcount, Int32 basevertex)
         {
             Delegates.glDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex);
         }
@@ -763,17 +752,17 @@ namespace SharpGL
             Delegates.glDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
         }
 
-        public static void DrawRangeElements(BeginMode mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices)
+        public static void DrawRangeElements(SharpGL.BeginMode mode, UInt32 start, UInt32 end, Int32 count, SharpGL.DrawElementsType type, IntPtr indices)
         {
             Delegates.glDrawRangeElements(mode, start, end, count, type, indices);
         }
 
-        public static void DrawRangeElementsBaseVertex(BeginMode mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices, Int32 basevertex)
+        public static void DrawRangeElementsBaseVertex(SharpGL.BeginMode mode, UInt32 start, UInt32 end, Int32 count, SharpGL.DrawElementsType type, IntPtr indices, Int32 basevertex)
         {
             Delegates.glDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
         }
 
-        public static void DrawTransformFeedback(NvTransformFeedback2 mode, UInt32 id)
+        public static void DrawTransformFeedback(SharpGL.NvTransformFeedback2 mode, UInt32 id)
         {
             Delegates.glDrawTransformFeedback(mode, id);
         }
@@ -783,7 +772,7 @@ namespace SharpGL
             Delegates.glDrawTransformFeedbackInstanced(mode, id, primcount);
         }
 
-        public static void DrawTransformFeedbackStream(NvTransformFeedback2 mode, UInt32 id, UInt32 stream)
+        public static void DrawTransformFeedbackStream(SharpGL.NvTransformFeedback2 mode, UInt32 id, UInt32 stream)
         {
             Delegates.glDrawTransformFeedbackStream(mode, id, stream);
         }
@@ -793,12 +782,12 @@ namespace SharpGL
             Delegates.glDrawTransformFeedbackStreamInstanced(mode, id, stream, primcount);
         }
 
-        public static void Enable(EnableCap cap)
+        public static void Enable(SharpGL.EnableCap cap)
         {
             Delegates.glEnable(cap);
         }
 
-        public static void Disable(EnableCap cap)
+        public static void Disable(SharpGL.EnableCap cap)
         {
             Delegates.glDisable(cap);
         }
@@ -820,7 +809,7 @@ namespace SharpGL
 
         public static void EnableVertexAttribArray(Int32 index)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glEnableVertexAttribArray((UInt32)index);
         }
 
@@ -831,7 +820,7 @@ namespace SharpGL
 
         public static void DisableVertexAttribArray(Int32 index)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glDisableVertexAttribArray((UInt32)index);
         }
 
@@ -842,7 +831,7 @@ namespace SharpGL
 
         public static void EnableVertexArrayAttrib(UInt32 vaobj, Int32 index)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glEnableVertexArrayAttrib(vaobj, (UInt32)index);
         }
 
@@ -853,11 +842,11 @@ namespace SharpGL
 
         public static void DisableVertexArrayAttrib(UInt32 vaobj, Int32 index)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glDisableVertexArrayAttrib(vaobj, (UInt32)index);
         }
 
-        public static IntPtr FenceSync(ArbSync condition, UInt32 flags)
+        public static IntPtr FenceSync(SharpGL.ArbSync condition, UInt32 flags)
         {
             return Delegates.glFenceSync(condition, flags);
         }
@@ -872,7 +861,7 @@ namespace SharpGL
             Delegates.glFlush();
         }
 
-        public static void FlushMappedBufferRange(BufferTarget target, IntPtr offset, IntPtr length)
+        public static void FlushMappedBufferRange(SharpGL.BufferTarget target, IntPtr offset, IntPtr length)
         {
             Delegates.glFlushMappedBufferRange(target, offset, length);
         }
@@ -892,17 +881,17 @@ namespace SharpGL
             Delegates.glNamedFramebufferParameteri(framebuffer, pname, param);
         }
 
-        public static void FramebufferRenderbuffer(FramebufferTarget target, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
+        public static void FramebufferRenderbuffer(SharpGL.FramebufferTarget target, SharpGL.FramebufferAttachment attachment, SharpGL.RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
         {
             Delegates.glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
         }
 
-        public static void NamedFramebufferRenderbuffer(UInt32 framebuffer, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
+        public static void NamedFramebufferRenderbuffer(UInt32 framebuffer, SharpGL.FramebufferAttachment attachment, SharpGL.RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
         {
             Delegates.glNamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer);
         }
 
-        public static void FramebufferTexture(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level)
+        public static void FramebufferTexture(SharpGL.FramebufferTarget target, SharpGL.FramebufferAttachment attachment, UInt32 texture, Int32 level)
         {
             Delegates.glFramebufferTexture(target, attachment, texture, level);
         }
@@ -922,32 +911,32 @@ namespace SharpGL
             Delegates.glFramebufferTexture3D(target, attachment, textarget, texture, level, layer);
         }
 
-        public static void NamedFramebufferTexture(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level)
+        public static void NamedFramebufferTexture(UInt32 framebuffer, SharpGL.FramebufferAttachment attachment, UInt32 texture, Int32 level)
         {
             Delegates.glNamedFramebufferTexture(framebuffer, attachment, texture, level);
         }
 
-        public static void FramebufferTextureLayer(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 layer)
+        public static void FramebufferTextureLayer(SharpGL.FramebufferTarget target, SharpGL.FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 layer)
         {
             Delegates.glFramebufferTextureLayer(target, attachment, texture, level, layer);
         }
 
-        public static void NamedFramebufferTextureLayer(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 layer)
+        public static void NamedFramebufferTextureLayer(UInt32 framebuffer, SharpGL.FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 layer)
         {
             Delegates.glNamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer);
         }
 
-        public static void FrontFace(FrontFaceDirection mode)
+        public static void FrontFace(SharpGL.FrontFaceDirection mode)
         {
             Delegates.glFrontFace(mode);
         }
 
-        public static void GenBuffers(Int32 n, [Out] UInt32[] buffers)
+        public static void GenBuffers(Int32 n, [OutAttribute] UInt32[] buffers)
         {
             Delegates.glGenBuffers(n, buffers);
         }
 
-        public static void GenerateMipmap(GenerateMipmapTarget target)
+        public static void GenerateMipmap(SharpGL.GenerateMipmapTarget target)
         {
             Delegates.glGenerateMipmap(target);
         }
@@ -957,171 +946,171 @@ namespace SharpGL
             Delegates.glGenerateTextureMipmap(texture);
         }
 
-        public static void GenFramebuffers(Int32 n, [Out] UInt32[] ids)
+        public static void GenFramebuffers(Int32 n, [OutAttribute] UInt32[] ids)
         {
             Delegates.glGenFramebuffers(n, ids);
         }
 
-        public static void GenProgramPipelines(Int32 n, [Out] UInt32[] pipelines)
+        public static void GenProgramPipelines(Int32 n, [OutAttribute] UInt32[] pipelines)
         {
             Delegates.glGenProgramPipelines(n, pipelines);
         }
 
-        public static void GenQueries(Int32 n, [Out] UInt32[] ids)
+        public static void GenQueries(Int32 n, [OutAttribute] UInt32[] ids)
         {
             Delegates.glGenQueries(n, ids);
         }
 
-        public static void GenRenderbuffers(Int32 n, [Out] UInt32[] renderbuffers)
+        public static void GenRenderbuffers(Int32 n, [OutAttribute] UInt32[] renderbuffers)
         {
             Delegates.glGenRenderbuffers(n, renderbuffers);
         }
 
-        public static void GenSamplers(Int32 n, [Out] UInt32[] samplers)
+        public static void GenSamplers(Int32 n, [OutAttribute] UInt32[] samplers)
         {
             Delegates.glGenSamplers(n, samplers);
         }
 
-        public static void GenTextures(Int32 n, [Out] UInt32[] textures)
+        public static void GenTextures(Int32 n, [OutAttribute] UInt32[] textures)
         {
             Delegates.glGenTextures(n, textures);
         }
 
-        public static void GenTransformFeedbacks(Int32 n, [Out] UInt32[] ids)
+        public static void GenTransformFeedbacks(Int32 n, [OutAttribute] UInt32[] ids)
         {
             Delegates.glGenTransformFeedbacks(n, ids);
         }
 
-        public static void GenVertexArrays(Int32 n, [Out] UInt32[] arrays)
+        public static void GenVertexArrays(Int32 n, [OutAttribute] UInt32[] arrays)
         {
             Delegates.glGenVertexArrays(n, arrays);
         }
 
-        public static void GetBooleanv(GetPName pname, [Out] Boolean[] data)
+        public static void GetBooleanv(SharpGL.GetPName pname, [OutAttribute] Boolean[] data)
         {
             Delegates.glGetBooleanv(pname, data);
         }
 
-        public static void GetDoublev(GetPName pname, [Out] Double[] data)
+        public static void GetDoublev(SharpGL.GetPName pname, [OutAttribute] Double[] data)
         {
             Delegates.glGetDoublev(pname, data);
         }
 
-        public static void GetFloatv(GetPName pname, [Out] Single[] data)
+        public static void GetFloatv(SharpGL.GetPName pname, [OutAttribute] Single[] data)
         {
             Delegates.glGetFloatv(pname, data);
         }
 
-        public static void GetIntegerv(GetPName pname, [Out] Int32[] data)
+        public static void GetIntegerv(SharpGL.GetPName pname, [OutAttribute] Int32[] data)
         {
             Delegates.glGetIntegerv(pname, data);
         }
 
-        public static void GetInteger64v(ArbSync pname, [Out] Int64[] data)
+        public static void GetInteger64v(SharpGL.ArbSync pname, [OutAttribute] Int64[] data)
         {
             Delegates.glGetInteger64v(pname, data);
         }
 
-        public static void GetBooleani_v(GetPName target, UInt32 index, [Out] Boolean[] data)
+        public static void GetBooleani_v(GetPName target, UInt32 index, [OutAttribute] Boolean[] data)
         {
             Delegates.glGetBooleani_v(target, index, data);
         }
 
-        public static void GetIntegeri_v(GetPName target, UInt32 index, [Out] Int32[] data)
+        public static void GetIntegeri_v(GetPName target, UInt32 index, [OutAttribute] Int32[] data)
         {
             Delegates.glGetIntegeri_v(target, index, data);
         }
 
-        public static void GetFloati_v(GetPName target, UInt32 index, [Out] Single[] data)
+        public static void GetFloati_v(GetPName target, UInt32 index, [OutAttribute] Single[] data)
         {
             Delegates.glGetFloati_v(target, index, data);
         }
 
-        public static void GetDoublei_v(GetPName target, UInt32 index, [Out] Double[] data)
+        public static void GetDoublei_v(GetPName target, UInt32 index, [OutAttribute] Double[] data)
         {
             Delegates.glGetDoublei_v(target, index, data);
         }
 
-        public static void GetInteger64i_v(GetPName target, UInt32 index, [Out] Int64[] data)
+        public static void GetInteger64i_v(GetPName target, UInt32 index, [OutAttribute] Int64[] data)
         {
             Delegates.glGetInteger64i_v(target, index, data);
         }
 
-        public static void GetActiveAtomicCounterBufferiv(UInt32 program, UInt32 bufferIndex, AtomicCounterParameterName pname, [Out] Int32[] @params)
+        public static void GetActiveAtomicCounterBufferiv(UInt32 program, UInt32 bufferIndex, AtomicCounterParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, @params);
         }
 
-        public static void GetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, [Out] Int32[] length, [Out] Int32[] size, [Out] ActiveAttribType[] type, [Out] StringBuilder name)
+        public static void GetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] Int32[] size, [OutAttribute] SharpGL.ActiveAttribType[] type, [OutAttribute] System.Text.StringBuilder name)
         {
             Delegates.glGetActiveAttrib(program, index, bufSize, length, size, type, name);
         }
 
-        public static void GetActiveAttrib(UInt32 program, Int32 index, Int32 bufSize, [Out] Int32[] length, [Out] Int32[] size, [Out] ActiveAttribType[] type, [Out] StringBuilder name)
+        public static void GetActiveAttrib(UInt32 program, Int32 index, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] Int32[] size, [OutAttribute] SharpGL.ActiveAttribType[] type, [OutAttribute] System.Text.StringBuilder name)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetActiveAttrib(program, (UInt32)index, bufSize, length, size, type, name);
         }
 
-        public static void GetActiveSubroutineName(UInt32 program, ShaderType shadertype, UInt32 index, Int32 bufsize, [Out] Int32[] length, [Out] StringBuilder name)
+        public static void GetActiveSubroutineName(UInt32 program, ShaderType shadertype, UInt32 index, Int32 bufsize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder name)
         {
             Delegates.glGetActiveSubroutineName(program, shadertype, index, bufsize, length, name);
         }
 
-        public static void GetActiveSubroutineUniformiv(UInt32 program, ShaderType shadertype, UInt32 index, SubroutineParameterName pname, [Out] Int32[] values)
+        public static void GetActiveSubroutineUniformiv(UInt32 program, ShaderType shadertype, UInt32 index, SubroutineParameterName pname, [OutAttribute] Int32[] values)
         {
             Delegates.glGetActiveSubroutineUniformiv(program, shadertype, index, pname, values);
         }
 
-        public static void GetActiveSubroutineUniformiv(UInt32 program, ShaderType shadertype, Int32 index, SubroutineParameterName pname, [Out] Int32[] values)
+        public static void GetActiveSubroutineUniformiv(UInt32 program, ShaderType shadertype, Int32 index, SubroutineParameterName pname, [OutAttribute] Int32[] values)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetActiveSubroutineUniformiv(program, shadertype, (UInt32)index, pname, values);
         }
 
-        public static void GetActiveSubroutineUniformName(UInt32 program, ShaderType shadertype, UInt32 index, Int32 bufsize, [Out] Int32[] length, [Out] StringBuilder name)
+        public static void GetActiveSubroutineUniformName(UInt32 program, ShaderType shadertype, UInt32 index, Int32 bufsize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder name)
         {
             Delegates.glGetActiveSubroutineUniformName(program, shadertype, index, bufsize, length, name);
         }
 
-        public static void GetActiveSubroutineUniformName(UInt32 program, ShaderType shadertype, Int32 index, Int32 bufsize, [Out] Int32[] length, [Out] StringBuilder name)
+        public static void GetActiveSubroutineUniformName(UInt32 program, ShaderType shadertype, Int32 index, Int32 bufsize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder name)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetActiveSubroutineUniformName(program, shadertype, (UInt32)index, bufsize, length, name);
         }
 
-        public static void GetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, [Out] Int32[] length, [Out] Int32[] size, [Out] ActiveUniformType[] type, [Out] StringBuilder name)
+        public static void GetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] Int32[] size, [OutAttribute] SharpGL.ActiveUniformType[] type, [OutAttribute] System.Text.StringBuilder name)
         {
             Delegates.glGetActiveUniform(program, index, bufSize, length, size, type, name);
         }
 
-        public static void GetActiveUniform(UInt32 program, Int32 index, Int32 bufSize, [Out] Int32[] length, [Out] Int32[] size, [Out] ActiveUniformType[] type, [Out] StringBuilder name)
+        public static void GetActiveUniform(UInt32 program, Int32 index, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] Int32[] size, [OutAttribute] SharpGL.ActiveUniformType[] type, [OutAttribute] System.Text.StringBuilder name)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetActiveUniform(program, (UInt32)index, bufSize, length, size, type, name);
         }
 
-        public static void GetActiveUniformBlockiv(UInt32 program, UInt32 uniformBlockIndex, ActiveUniformBlockParameter pname, [Out] Int32[] @params)
+        public static void GetActiveUniformBlockiv(UInt32 program, UInt32 uniformBlockIndex, SharpGL.ActiveUniformBlockParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, @params);
         }
 
-        public static void GetActiveUniformBlockName(UInt32 program, UInt32 uniformBlockIndex, Int32 bufSize, [Out] Int32[] length, [Out] StringBuilder uniformBlockName)
+        public static void GetActiveUniformBlockName(UInt32 program, UInt32 uniformBlockIndex, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder uniformBlockName)
         {
             Delegates.glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName);
         }
 
-        public static void GetActiveUniformName(UInt32 program, UInt32 uniformIndex, Int32 bufSize, [Out] Int32[] length, [Out] StringBuilder uniformName)
+        public static void GetActiveUniformName(UInt32 program, UInt32 uniformIndex, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder uniformName)
         {
             Delegates.glGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName);
         }
 
-        public static void GetActiveUniformsiv(UInt32 program, Int32 uniformCount, [Out] UInt32[] uniformIndices, ActiveUniformType pname, [Out] Int32[] @params)
+        public static void GetActiveUniformsiv(UInt32 program, Int32 uniformCount, [OutAttribute] UInt32[] uniformIndices, ActiveUniformType pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, @params);
         }
 
-        public static void GetAttachedShaders(UInt32 program, Int32 maxCount, [Out] Int32[] count, [Out] UInt32[] shaders)
+        public static void GetAttachedShaders(UInt32 program, Int32 maxCount, [OutAttribute] Int32[] count, [OutAttribute] UInt32[] shaders)
         {
             Delegates.glGetAttachedShaders(program, maxCount, count, shaders);
         }
@@ -1131,62 +1120,62 @@ namespace SharpGL
             return Delegates.glGetAttribLocation(program, name);
         }
 
-        public static void GetBufferParameteriv(BufferTarget target, BufferParameterName value, [Out] Int32[] data)
+        public static void GetBufferParameteriv(SharpGL.BufferTarget target, SharpGL.BufferParameterName value, [OutAttribute] Int32[] data)
         {
             Delegates.glGetBufferParameteriv(target, value, data);
         }
 
-        public static void GetBufferParameteri64v(BufferTarget target, BufferParameterName value, [Out] Int64[] data)
+        public static void GetBufferParameteri64v(BufferTarget target, BufferParameterName value, [OutAttribute] Int64[] data)
         {
             Delegates.glGetBufferParameteri64v(target, value, data);
         }
 
-        public static void GetNamedBufferParameteriv(UInt32 buffer, BufferParameterName pname, [Out] Int32[] @params)
+        public static void GetNamedBufferParameteriv(UInt32 buffer, BufferParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetNamedBufferParameteriv(buffer, pname, @params);
         }
 
-        public static void GetNamedBufferParameteri64v(UInt32 buffer, BufferParameterName pname, [Out] Int64[] @params)
+        public static void GetNamedBufferParameteri64v(UInt32 buffer, BufferParameterName pname, [OutAttribute] Int64[] @params)
         {
             Delegates.glGetNamedBufferParameteri64v(buffer, pname, @params);
         }
 
-        public static void GetBufferPointerv(BufferTarget target, BufferPointer pname, [Out] IntPtr @params)
+        public static void GetBufferPointerv(SharpGL.BufferTarget target, SharpGL.BufferPointer pname, [OutAttribute] IntPtr @params)
         {
             Delegates.glGetBufferPointerv(target, pname, @params);
         }
 
-        public static void GetNamedBufferPointerv(UInt32 buffer, BufferPointer pname, [Out] IntPtr @params)
+        public static void GetNamedBufferPointerv(UInt32 buffer, SharpGL.BufferPointer pname, [OutAttribute] IntPtr @params)
         {
             Delegates.glGetNamedBufferPointerv(buffer, pname, @params);
         }
 
-        public static void GetBufferSubData(BufferTarget target, IntPtr offset, IntPtr size, [Out] IntPtr data)
+        public static void GetBufferSubData(SharpGL.BufferTarget target, IntPtr offset, IntPtr size, [OutAttribute] IntPtr data)
         {
             Delegates.glGetBufferSubData(target, offset, size, data);
         }
 
-        public static void GetNamedBufferSubData(UInt32 buffer, IntPtr offset, Int32 size, [Out] IntPtr data)
+        public static void GetNamedBufferSubData(UInt32 buffer, IntPtr offset, Int32 size, [OutAttribute] IntPtr data)
         {
             Delegates.glGetNamedBufferSubData(buffer, offset, size, data);
         }
 
-        public static void GetCompressedTexImage(TextureTarget target, Int32 level, [Out] IntPtr pixels)
+        public static void GetCompressedTexImage(SharpGL.TextureTarget target, Int32 level, [OutAttribute] IntPtr pixels)
         {
             Delegates.glGetCompressedTexImage(target, level, pixels);
         }
 
-        public static void GetnCompressedTexImage(TextureTarget target, Int32 level, Int32 bufSize, [Out] IntPtr pixels)
+        public static void GetnCompressedTexImage(TextureTarget target, Int32 level, Int32 bufSize, [OutAttribute] IntPtr pixels)
         {
             Delegates.glGetnCompressedTexImage(target, level, bufSize, pixels);
         }
 
-        public static void GetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, [Out] IntPtr pixels)
+        public static void GetCompressedTextureImage(UInt32 texture, Int32 level, Int32 bufSize, [OutAttribute] IntPtr pixels)
         {
             Delegates.glGetCompressedTextureImage(texture, level, bufSize, pixels);
         }
 
-        public static void GetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, [Out] IntPtr pixels)
+        public static void GetCompressedTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 bufSize, [OutAttribute] IntPtr pixels)
         {
             Delegates.glGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
         }
@@ -1206,22 +1195,22 @@ namespace SharpGL
             return Delegates.glGetFragDataLocation(program, name);
         }
 
-        public static void GetFramebufferAttachmentParameteriv(FramebufferTarget target, FramebufferAttachment attachment, FramebufferParameterName pname, [Out] Int32[] @params)
+        public static void GetFramebufferAttachmentParameteriv(SharpGL.FramebufferTarget target, SharpGL.FramebufferAttachment attachment, SharpGL.FramebufferParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetFramebufferAttachmentParameteriv(target, attachment, pname, @params);
         }
 
-        public static void GetNamedFramebufferAttachmentParameteriv(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferParameterName pname, [Out] Int32[] @params)
+        public static void GetNamedFramebufferAttachmentParameteriv(UInt32 framebuffer, SharpGL.FramebufferAttachment attachment, SharpGL.FramebufferParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, @params);
         }
 
-        public static void GetFramebufferParameteriv(FramebufferTarget target, FramebufferPName pname, [Out] Int32[] @params)
+        public static void GetFramebufferParameteriv(FramebufferTarget target, FramebufferPName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetFramebufferParameteriv(target, pname, @params);
         }
 
-        public static void GetNamedFramebufferParameteriv(UInt32 framebuffer, FramebufferPName pname, [Out] Int32[] param)
+        public static void GetNamedFramebufferParameteriv(UInt32 framebuffer, FramebufferPName pname, [OutAttribute] Int32[] param)
         {
             Delegates.glGetNamedFramebufferParameteriv(framebuffer, pname, param);
         }
@@ -1231,67 +1220,67 @@ namespace SharpGL
             return Delegates.glGetGraphicsResetStatus();
         }
 
-        public static void GetInternalformativ(TextureTarget target, PixelInternalFormat internalFormat, GetPName pname, Int32 bufSize, [Out] Int32[] @params)
+        public static void GetInternalformativ(TextureTarget target, PixelInternalFormat internalFormat, GetPName pname, Int32 bufSize, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetInternalformativ(target, internalFormat, pname, bufSize, @params);
         }
 
-        public static void GetInternalformati64v(TextureTarget target, PixelInternalFormat internalFormat, GetPName pname, Int32 bufSize, [Out] Int64[] @params)
+        public static void GetInternalformati64v(TextureTarget target, PixelInternalFormat internalFormat, GetPName pname, Int32 bufSize, [OutAttribute] Int64[] @params)
         {
             Delegates.glGetInternalformati64v(target, internalFormat, pname, bufSize, @params);
         }
 
-        public static void GetMultisamplefv(GetMultisamplePName pname, UInt32 index, [Out] Single[] val)
+        public static void GetMultisamplefv(SharpGL.GetMultisamplePName pname, UInt32 index, [OutAttribute] Single[] val)
         {
             Delegates.glGetMultisamplefv(pname, index, val);
         }
 
-        public static void GetObjectLabel(ObjectLabel identifier, UInt32 name, Int32 bifSize, [Out] Int32[] length, [Out] StringBuilder label)
+        public static void GetObjectLabel(SharpGL.ObjectLabel identifier, UInt32 name, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder label)
         {
-            Delegates.glGetObjectLabel(identifier, name, bifSize, length, label);
+            Delegates.glGetObjectLabel(identifier, name, bufSize, length, label);
         }
 
-        public static void GetObjectPtrLabel([Out] IntPtr ptr, Int32 bifSize, [Out] Int32[] length, [Out] StringBuilder label)
+        public static void GetObjectPtrLabel([OutAttribute] IntPtr ptr, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder label)
         {
-            Delegates.glGetObjectPtrLabel(ptr, bifSize, length, label);
+            Delegates.glGetObjectPtrLabel(ptr, bufSize, length, label);
         }
 
-        public static void GetPointerv(GetPointerParameter pname, [Out] IntPtr @params)
+        public static void GetPointerv(GetPointerParameter pname, [OutAttribute] IntPtr @params)
         {
             Delegates.glGetPointerv(pname, @params);
         }
 
-        public static void GetProgramiv(UInt32 program, ProgramParameter pname, [Out] Int32[] @params)
+        public static void GetProgramiv(UInt32 program, SharpGL.ProgramParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetProgramiv(program, pname, @params);
         }
 
-        public static void GetProgramBinary(UInt32 program, Int32 bufsize, [Out] Int32[] length, [Out] Int32[] binaryFormat, [Out] IntPtr binary)
+        public static void GetProgramBinary(UInt32 program, Int32 bufsize, [OutAttribute] Int32[] length, [OutAttribute] Int32[] binaryFormat, [OutAttribute] IntPtr binary)
         {
             Delegates.glGetProgramBinary(program, bufsize, length, binaryFormat, binary);
         }
 
-        public static void GetProgramInfoLog(UInt32 program, Int32 maxLength, [Out] Int32[] length, [Out] StringBuilder infoLog)
+        public static void GetProgramInfoLog(UInt32 program, Int32 maxLength, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder infoLog)
         {
             Delegates.glGetProgramInfoLog(program, maxLength, length, infoLog);
         }
 
-        public static void GetProgramInterfaceiv(UInt32 program, ProgramInterface programInterface, ProgramInterfaceParameterName pname, [Out] Int32[] @params)
+        public static void GetProgramInterfaceiv(UInt32 program, ProgramInterface programInterface, ProgramInterfaceParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetProgramInterfaceiv(program, programInterface, pname, @params);
         }
 
-        public static void GetProgramPipelineiv(UInt32 pipeline, Int32 pname, [Out] Int32[] @params)
+        public static void GetProgramPipelineiv(UInt32 pipeline, Int32 pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetProgramPipelineiv(pipeline, pname, @params);
         }
 
-        public static void GetProgramPipelineInfoLog(UInt32 pipeline, Int32 bufSize, [Out] Int32[] length, [Out] StringBuilder infoLog)
+        public static void GetProgramPipelineInfoLog(UInt32 pipeline, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder infoLog)
         {
             Delegates.glGetProgramPipelineInfoLog(pipeline, bufSize, length, infoLog);
         }
 
-        public static void GetProgramResourceiv(UInt32 program, ProgramInterface programInterface, UInt32 index, Int32 propCount, [Out] ProgramResourceParameterName[] props, Int32 bufSize, [Out] Int32[] length, [Out] Int32[] @params)
+        public static void GetProgramResourceiv(UInt32 program, ProgramInterface programInterface, UInt32 index, Int32 propCount, [OutAttribute] ProgramResourceParameterName[] props, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetProgramResourceiv(program, programInterface, index, propCount, props, bufSize, length, @params);
         }
@@ -1311,104 +1300,104 @@ namespace SharpGL
             return Delegates.glGetProgramResourceLocationIndex(program, programInterface, name);
         }
 
-        public static void GetProgramResourceName(UInt32 program, ProgramInterface programInterface, UInt32 index, Int32 bufSize, [Out] Int32[] length, [Out] StringBuilder name)
+        public static void GetProgramResourceName(UInt32 program, ProgramInterface programInterface, UInt32 index, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder name)
         {
             Delegates.glGetProgramResourceName(program, programInterface, index, bufSize, length, name);
         }
 
-        public static void GetProgramStageiv(UInt32 program, ShaderType shadertype, ProgramStageParameterName pname, [Out] Int32[] values)
+        public static void GetProgramStageiv(UInt32 program, ShaderType shadertype, ProgramStageParameterName pname, [OutAttribute] Int32[] values)
         {
             Delegates.glGetProgramStageiv(program, shadertype, pname, values);
         }
 
-        public static void GetQueryIndexediv(QueryTarget target, UInt32 index, GetQueryParam pname, [Out] Int32[] @params)
+        public static void GetQueryIndexediv(QueryTarget target, UInt32 index, GetQueryParam pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetQueryIndexediv(target, index, pname, @params);
         }
 
-        public static void GetQueryiv(QueryTarget target, GetQueryParam pname, [Out] Int32[] @params)
+        public static void GetQueryiv(SharpGL.QueryTarget target, SharpGL.GetQueryParam pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetQueryiv(target, pname, @params);
         }
 
-        public static void GetQueryObjectiv(UInt32 id, GetQueryObjectParam pname, [Out] Int32[] @params)
+        public static void GetQueryObjectiv(UInt32 id, SharpGL.GetQueryObjectParam pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetQueryObjectiv(id, pname, @params);
         }
 
-        public static void GetQueryObjectuiv(UInt32 id, GetQueryObjectParam pname, [Out] UInt32[] @params)
+        public static void GetQueryObjectuiv(UInt32 id, SharpGL.GetQueryObjectParam pname, [OutAttribute] UInt32[] @params)
         {
             Delegates.glGetQueryObjectuiv(id, pname, @params);
         }
 
-        public static void GetQueryObjecti64v(UInt32 id, GetQueryObjectParam pname, [Out] Int64[] @params)
+        public static void GetQueryObjecti64v(UInt32 id, SharpGL.GetQueryObjectParam pname, [OutAttribute] Int64[] @params)
         {
             Delegates.glGetQueryObjecti64v(id, pname, @params);
         }
 
-        public static void GetQueryObjectui64v(UInt32 id, GetQueryObjectParam pname, [Out] UInt64[] @params)
+        public static void GetQueryObjectui64v(UInt32 id, SharpGL.GetQueryObjectParam pname, [OutAttribute] UInt64[] @params)
         {
             Delegates.glGetQueryObjectui64v(id, pname, @params);
         }
 
-        public static void GetRenderbufferParameteriv(RenderbufferTarget target, RenderbufferParameterName pname, [Out] Int32[] @params)
+        public static void GetRenderbufferParameteriv(SharpGL.RenderbufferTarget target, SharpGL.RenderbufferParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetRenderbufferParameteriv(target, pname, @params);
         }
 
-        public static void GetNamedRenderbufferParameteriv(UInt32 renderbuffer, RenderbufferParameterName pname, [Out] Int32[] @params)
+        public static void GetNamedRenderbufferParameteriv(UInt32 renderbuffer, SharpGL.RenderbufferParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetNamedRenderbufferParameteriv(renderbuffer, pname, @params);
         }
 
-        public static void GetSamplerParameterfv(UInt32 sampler, Int32 pname, [Out] Single[] @params)
+        public static void GetSamplerParameterfv(UInt32 sampler, TextureParameterName pname, [OutAttribute] Single[] @params)
         {
             Delegates.glGetSamplerParameterfv(sampler, pname, @params);
         }
 
-        public static void GetSamplerParameteriv(UInt32 sampler, Int32 pname, [Out] Int32[] @params)
+        public static void GetSamplerParameteriv(UInt32 sampler, TextureParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetSamplerParameteriv(sampler, pname, @params);
         }
 
-        public static void GetSamplerParameterIiv(UInt32 sampler, TextureParameterName pname, [Out] Int32[] @params)
+        public static void GetSamplerParameterIiv(UInt32 sampler, TextureParameterName pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetSamplerParameterIiv(sampler, pname, @params);
         }
 
-        public static void GetSamplerParameterIuiv(UInt32 sampler, TextureParameterName pname, [Out] UInt32[] @params)
+        public static void GetSamplerParameterIuiv(UInt32 sampler, TextureParameterName pname, [OutAttribute] UInt32[] @params)
         {
             Delegates.glGetSamplerParameterIuiv(sampler, pname, @params);
         }
 
-        public static void GetShaderiv(UInt32 shader, ShaderParameter pname, [Out] Int32[] @params)
+        public static void GetShaderiv(UInt32 shader, SharpGL.ShaderParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetShaderiv(shader, pname, @params);
         }
 
-        public static void GetShaderInfoLog(UInt32 shader, Int32 maxLength, [Out] Int32[] length, [Out] StringBuilder infoLog)
+        public static void GetShaderInfoLog(UInt32 shader, Int32 maxLength, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder infoLog)
         {
             Delegates.glGetShaderInfoLog(shader, maxLength, length, infoLog);
         }
 
-        public static void GetShaderPrecisionFormat(ShaderType shaderType, Int32 precisionType, [Out] Int32[] range, [Out] Int32[] precision)
+        public static void GetShaderPrecisionFormat(SharpGL.ShaderType shaderType, Int32 precisionType, [OutAttribute] Int32[] range, [OutAttribute] Int32[] precision)
         {
             Delegates.glGetShaderPrecisionFormat(shaderType, precisionType, range, precision);
         }
 
-        public static void GetShaderSource(UInt32 shader, Int32 bufSize, [Out] Int32[] length, [Out] StringBuilder source)
+        public static void GetShaderSource(UInt32 shader, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] System.Text.StringBuilder source)
         {
             Delegates.glGetShaderSource(shader, bufSize, length, source);
         }
 
         public static String GetString(StringName name)
         {
-            return Marshal.PtrToStringAnsi(Delegates.glGetString(name));
+            return System.Runtime.InteropServices.Marshal.PtrToStringAnsi(Delegates.glGetString(name));
         }
 
         public static String GetStringi(StringName name, UInt32 index)
         {
-            return Marshal.PtrToStringAnsi(Delegates.glGetStringi(name, index));
+            return System.Runtime.InteropServices.Marshal.PtrToStringAnsi(Delegates.glGetStringi(name, index));
         }
 
         public static UInt32 GetSubroutineIndex(UInt32 program, ShaderType shadertype, String name)
@@ -1421,157 +1410,158 @@ namespace SharpGL
             return Delegates.glGetSubroutineUniformLocation(program, shadertype, name);
         }
 
-        public static void GetSynciv(IntPtr sync, ArbSync pname, Int32 bufSize, [Out] Int32[] length, [Out] Int32[] values)
+        public static void GetSynciv(IntPtr sync, SharpGL.ArbSync pname, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] Int32[] values)
         {
             Delegates.glGetSynciv(sync, pname, bufSize, length, values);
         }
 
-        public static void GetTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, [Out] IntPtr pixels)
+        public static void GetTexImage(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelFormat format, SharpGL.PixelType type, [OutAttribute] IntPtr pixels)
         {
             Delegates.glGetTexImage(target, level, format, type, pixels);
         }
 
-        public static void GetnTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, [Out] IntPtr pixels)
+        public static void GetnTexImage(TextureTarget target, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, [OutAttribute] IntPtr pixels)
         {
             Delegates.glGetnTexImage(target, level, format, type, bufSize, pixels);
         }
 
-        public static void GetTextureImage(UInt32 texture, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, [Out] IntPtr pixels)
+        public static void GetTextureImage(UInt32 texture, Int32 level, PixelFormat format, PixelType type, Int32 bufSize, [OutAttribute] IntPtr pixels)
         {
             Delegates.glGetTextureImage(texture, level, format, type, bufSize, pixels);
         }
 
-        public static void GetTexLevelParameterfv(GetPName target, Int32 level, GetTextureLevelParameter pname, [Out] Single[] @params)
+        public static void GetTexLevelParameterfv(GetPName target, Int32 level, GetTextureLevelParameter pname, [OutAttribute] Single[] @params)
         {
             Delegates.glGetTexLevelParameterfv(target, level, pname, @params);
         }
 
-        public static void GetTexLevelParameteriv(GetPName target, Int32 level, GetTextureLevelParameter pname, [Out] Int32[] @params)
+        public static void GetTexLevelParameteriv(GetPName target, Int32 level, GetTextureLevelParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetTexLevelParameteriv(target, level, pname, @params);
         }
 
-        public static void GetTextureLevelParameterfv(UInt32 texture, Int32 level, GetTextureLevelParameter pname, [Out] Single[] @params)
+        public static void GetTextureLevelParameterfv(UInt32 texture, Int32 level, GetTextureLevelParameter pname, [OutAttribute] Single[] @params)
         {
             Delegates.glGetTextureLevelParameterfv(texture, level, pname, @params);
         }
 
-        public static void GetTextureLevelParameteriv(UInt32 texture, Int32 level, GetTextureLevelParameter pname, [Out] Int32[] @params)
+        public static void GetTextureLevelParameteriv(UInt32 texture, Int32 level, GetTextureLevelParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetTextureLevelParameteriv(texture, level, pname, @params);
         }
 
-        public static void GetTexParameterfv(TextureTarget target, GetTextureParameter pname, [Out] Single[] @params)
+        public static void GetTexParameterfv(SharpGL.TextureTarget target, SharpGL.GetTextureParameter pname, [OutAttribute] Single[] @params)
         {
             Delegates.glGetTexParameterfv(target, pname, @params);
         }
 
-        public static void GetTexParameteriv(TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
+        public static void GetTexParameteriv(SharpGL.TextureTarget target, SharpGL.GetTextureParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetTexParameteriv(target, pname, @params);
         }
 
-        public static void GetTexParameterIiv(TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
+        public static void GetTexParameterIiv(TextureTarget target, GetTextureParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetTexParameterIiv(target, pname, @params);
         }
 
-        public static void GetTexParameterIuiv(TextureTarget target, GetTextureParameter pname, [Out] UInt32[] @params)
+        public static void GetTexParameterIuiv(TextureTarget target, GetTextureParameter pname, [OutAttribute] UInt32[] @params)
         {
             Delegates.glGetTexParameterIuiv(target, pname, @params);
         }
 
-        public static void GetTextureParameterfv(UInt32 texture, GetTextureParameter pname, [Out] Single[] @params)
+        public static void GetTextureParameterfv(UInt32 texture, GetTextureParameter pname, [OutAttribute] Single[] @params)
         {
             Delegates.glGetTextureParameterfv(texture, pname, @params);
         }
 
-        public static void GetTextureParameteriv(UInt32 texture, GetTextureParameter pname, [Out] Int32[] @params)
+        public static void GetTextureParameteriv(UInt32 texture, GetTextureParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetTextureParameteriv(texture, pname, @params);
         }
 
-        public static void GetTextureParameterIiv(UInt32 texture, GetTextureParameter pname, [Out] Int32[] @params)
+        public static void GetTextureParameterIiv(UInt32 texture, GetTextureParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetTextureParameterIiv(texture, pname, @params);
         }
 
-        public static void GetTextureParameterIuiv(UInt32 texture, GetTextureParameter pname, [Out] UInt32[] @params)
+        public static void GetTextureParameterIuiv(UInt32 texture, GetTextureParameter pname, [OutAttribute] UInt32[] @params)
         {
             Delegates.glGetTextureParameterIuiv(texture, pname, @params);
         }
 
-        public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Int32 bufSize, [Out] IntPtr pixels)
+        public static void GetTextureSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Int32 bufSize, [OutAttribute] IntPtr pixels)
         {
             Delegates.glGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
         }
 
-        public static void GetTransformFeedbackiv(UInt32 xfb, TransformFeedbackParameterName pname, [Out] Int32[] param)
+        public static void GetTransformFeedbackiv(UInt32 xfb, TransformFeedbackParameterName pname, [OutAttribute] Int32[] param)
         {
             Delegates.glGetTransformFeedbackiv(xfb, pname, param);
         }
 
-        public static void GetTransformFeedbacki_v(UInt32 xfb, TransformFeedbackParameterName pname, UInt32 index, [Out] Int32[] param)
+        public static void GetTransformFeedbacki_v(UInt32 xfb, TransformFeedbackParameterName pname, UInt32 index, [OutAttribute] Int32[] param)
         {
             Delegates.glGetTransformFeedbacki_v(xfb, pname, index, param);
         }
 
-        public static void GetTransformFeedbacki64_v(UInt32 xfb, TransformFeedbackParameterName pname, UInt32 index, [Out] Int64[] param)
+        public static void GetTransformFeedbacki64_v(UInt32 xfb, TransformFeedbackParameterName pname, UInt32 index, [OutAttribute] Int64[] param)
         {
             Delegates.glGetTransformFeedbacki64_v(xfb, pname, index, param);
         }
 
-        public static void GetTransformFeedbackVarying(UInt32 program, UInt32 index, Int32 bufSize, [Out] Int32[] length, [Out] Int32[] size, [Out] ActiveAttribType[] type, [Out] StringBuilder name)
+        public static void GetTransformFeedbackVarying(UInt32 program, UInt32 index, Int32 bufSize, [OutAttribute] Int32[] length, [OutAttribute] Int32[] size, [OutAttribute] SharpGL.ActiveAttribType[] type, [OutAttribute] System.Text.StringBuilder name)
         {
             Delegates.glGetTransformFeedbackVarying(program, index, bufSize, length, size, type, name);
         }
 
-        public static void GetUniformfv(UInt32 program, Int32 location, [Out] Single[] @params)
+        public static void GetUniformfv(UInt32 program, Int32 location, [OutAttribute] Single[] @params)
         {
             Delegates.glGetUniformfv(program, location, @params);
         }
 
-        public static void GetUniformiv(UInt32 program, Int32 location, [Out] Int32[] @params)
+        public static void GetUniformiv(UInt32 program, Int32 location, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetUniformiv(program, location, @params);
         }
 
-        public static void GetUniformuiv(UInt32 program, Int32 location, [Out] UInt32[] @params)
+        public static void GetUniformuiv(UInt32 program, Int32 location, [OutAttribute] UInt32[] @params)
         {
             Delegates.glGetUniformuiv(program, location, @params);
         }
 
-        public static void GetUniformdv(UInt32 program, Int32 location, [Out] Double[] @params)
+        public static void GetUniformdv(UInt32 program, Int32 location, [OutAttribute] Double[] @params)
         {
             Delegates.glGetUniformdv(program, location, @params);
         }
 
-        public static void GetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, [Out] Single[] @params)
+        public static void GetnUniformfv(UInt32 program, Int32 location, Int32 bufSize, [OutAttribute] Single[] @params)
         {
             Delegates.glGetnUniformfv(program, location, bufSize, @params);
         }
 
-        public static void GetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, [Out] Int32[] @params)
+        public static void GetnUniformiv(UInt32 program, Int32 location, Int32 bufSize, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetnUniformiv(program, location, bufSize, @params);
         }
 
-        public static void GetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, [Out] UInt32[] @params)
+        public static void GetnUniformuiv(UInt32 program, Int32 location, Int32 bufSize, [OutAttribute] UInt32[] @params)
         {
             Delegates.glGetnUniformuiv(program, location, bufSize, @params);
         }
 
-        public static void GetnUniformdv(UInt32 program, Int32 location, Int32 bufSize, [Out] Double[] @params)
+        public static void GetnUniformdv(UInt32 program, Int32 location, Int32 bufSize, [OutAttribute] Double[] @params)
         {
             Delegates.glGetnUniformdv(program, location, bufSize, @params);
         }
 
         public static UInt32 GetUniformBlockIndex(UInt32 program, String uniformBlockName)
         {
+            UseProgram(program);    // take care of a crash that can occur on NVIDIA drivers by using the program first
             return Delegates.glGetUniformBlockIndex(program, uniformBlockName);
         }
 
-        public static void GetUniformIndices(UInt32 program, Int32 uniformCount, String uniformNames, [Out] UInt32[] uniformIndices)
+        public static void GetUniformIndices(UInt32 program, Int32 uniformCount, String uniformNames, [OutAttribute] UInt32[] uniformIndices)
         {
             Delegates.glGetUniformIndices(program, uniformCount, uniformNames, uniformIndices);
         }
@@ -1581,104 +1571,104 @@ namespace SharpGL
             return Delegates.glGetUniformLocation(program, name);
         }
 
-        public static void GetUniformSubroutineuiv(ShaderType shadertype, Int32 location, [Out] UInt32[] values)
+        public static void GetUniformSubroutineuiv(ShaderType shadertype, Int32 location, [OutAttribute] UInt32[] values)
         {
             Delegates.glGetUniformSubroutineuiv(shadertype, location, values);
         }
 
-        public static void GetVertexArrayIndexed64iv(UInt32 vaobj, UInt32 index, VertexAttribParameter pname, [Out] Int64[] param)
+        public static void GetVertexArrayIndexed64iv(UInt32 vaobj, UInt32 index, VertexAttribParameter pname, [OutAttribute] Int64[] param)
         {
             Delegates.glGetVertexArrayIndexed64iv(vaobj, index, pname, param);
         }
 
-        public static void GetVertexArrayIndexediv(UInt32 vaobj, UInt32 index, VertexAttribParameter pname, [Out] Int32[] param)
+        public static void GetVertexArrayIndexediv(UInt32 vaobj, UInt32 index, VertexAttribParameter pname, [OutAttribute] Int32[] param)
         {
             Delegates.glGetVertexArrayIndexediv(vaobj, index, pname, param);
         }
 
-        public static void GetVertexArrayiv(UInt32 vaobj, VertexAttribParameter pname, [Out] Int32[] param)
+        public static void GetVertexArrayiv(UInt32 vaobj, VertexAttribParameter pname, [OutAttribute] Int32[] param)
         {
             Delegates.glGetVertexArrayiv(vaobj, pname, param);
         }
 
-        public static void GetVertexAttribdv(UInt32 index, VertexAttribParameter pname, [Out] Double[] @params)
+        public static void GetVertexAttribdv(UInt32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Double[] @params)
         {
             Delegates.glGetVertexAttribdv(index, pname, @params);
         }
 
-        public static void GetVertexAttribdv(Int32 index, VertexAttribParameter pname, [Out] Double[] @params)
+        public static void GetVertexAttribdv(Int32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Double[] @params)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetVertexAttribdv((UInt32)index, pname, @params);
         }
 
-        public static void GetVertexAttribfv(UInt32 index, VertexAttribParameter pname, [Out] Single[] @params)
+        public static void GetVertexAttribfv(UInt32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Single[] @params)
         {
             Delegates.glGetVertexAttribfv(index, pname, @params);
         }
 
-        public static void GetVertexAttribfv(Int32 index, VertexAttribParameter pname, [Out] Single[] @params)
+        public static void GetVertexAttribfv(Int32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Single[] @params)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetVertexAttribfv((UInt32)index, pname, @params);
         }
 
-        public static void GetVertexAttribiv(UInt32 index, VertexAttribParameter pname, [Out] Int32[] @params)
+        public static void GetVertexAttribiv(UInt32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetVertexAttribiv(index, pname, @params);
         }
 
-        public static void GetVertexAttribiv(Int32 index, VertexAttribParameter pname, [Out] Int32[] @params)
+        public static void GetVertexAttribiv(Int32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Int32[] @params)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetVertexAttribiv((UInt32)index, pname, @params);
         }
 
-        public static void GetVertexAttribIiv(UInt32 index, VertexAttribParameter pname, [Out] Int32[] @params)
+        public static void GetVertexAttribIiv(UInt32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Int32[] @params)
         {
             Delegates.glGetVertexAttribIiv(index, pname, @params);
         }
 
-        public static void GetVertexAttribIiv(Int32 index, VertexAttribParameter pname, [Out] Int32[] @params)
+        public static void GetVertexAttribIiv(Int32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Int32[] @params)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetVertexAttribIiv((UInt32)index, pname, @params);
         }
 
-        public static void GetVertexAttribIuiv(UInt32 index, VertexAttribParameter pname, [Out] UInt32[] @params)
+        public static void GetVertexAttribIuiv(UInt32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] UInt32[] @params)
         {
             Delegates.glGetVertexAttribIuiv(index, pname, @params);
         }
 
-        public static void GetVertexAttribIuiv(Int32 index, VertexAttribParameter pname, [Out] UInt32[] @params)
+        public static void GetVertexAttribIuiv(Int32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] UInt32[] @params)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetVertexAttribIuiv((UInt32)index, pname, @params);
         }
 
-        public static void GetVertexAttribLdv(UInt32 index, VertexAttribParameter pname, [Out] Double[] @params)
+        public static void GetVertexAttribLdv(UInt32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Double[] @params)
         {
             Delegates.glGetVertexAttribLdv(index, pname, @params);
         }
 
-        public static void GetVertexAttribLdv(Int32 index, VertexAttribParameter pname, [Out] Double[] @params)
+        public static void GetVertexAttribLdv(Int32 index, SharpGL.VertexAttribParameter pname, [OutAttribute] Double[] @params)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetVertexAttribLdv((UInt32)index, pname, @params);
         }
 
-        public static void GetVertexAttribPointerv(UInt32 index, VertexAttribPointerParameter pname, [Out] IntPtr pointer)
+        public static void GetVertexAttribPointerv(UInt32 index, SharpGL.VertexAttribPointerParameter pname, [OutAttribute] IntPtr pointer)
         {
             Delegates.glGetVertexAttribPointerv(index, pname, pointer);
         }
 
-        public static void GetVertexAttribPointerv(Int32 index, VertexAttribPointerParameter pname, [Out] IntPtr pointer)
+        public static void GetVertexAttribPointerv(Int32 index, SharpGL.VertexAttribPointerParameter pname, [OutAttribute] IntPtr pointer)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glGetVertexAttribPointerv((UInt32)index, pname, pointer);
         }
 
-        public static void Hint(HintTarget target, HintMode mode)
+        public static void Hint(HintTarget target, SharpGL.HintMode mode)
         {
             Delegates.glHint(target, mode);
         }
@@ -1728,7 +1718,7 @@ namespace SharpGL
             return Delegates.glIsBuffer(buffer);
         }
 
-        public static Boolean IsEnabled(EnableCap cap)
+        public static Boolean IsEnabled(SharpGL.EnableCap cap)
         {
             return Delegates.glIsEnabled(cap);
         }
@@ -1803,22 +1793,22 @@ namespace SharpGL
             Delegates.glLinkProgram(program);
         }
 
-        public static void LogicOp(LogicOp opcode)
+        public static void LogicOp(SharpGL.LogicOp opcode)
         {
             Delegates.glLogicOp(opcode);
         }
 
-        public static IntPtr MapBuffer(BufferTarget target, BufferAccess access)
+        public static IntPtr MapBuffer(SharpGL.BufferTarget target, SharpGL.BufferAccess access)
         {
             return Delegates.glMapBuffer(target, access);
         }
 
-        public static IntPtr MapNamedBuffer(UInt32 buffer, BufferAccess access)
+        public static IntPtr MapNamedBuffer(UInt32 buffer, SharpGL.BufferAccess access)
         {
             return Delegates.glMapNamedBuffer(buffer, access);
         }
 
-        public static IntPtr MapBufferRange(BufferTarget target, IntPtr offset, IntPtr length, BufferAccessMask access)
+        public static IntPtr MapBufferRange(SharpGL.BufferTarget target, IntPtr offset, IntPtr length, SharpGL.BufferAccessMask access)
         {
             return Delegates.glMapBufferRange(target, offset, length, access);
         }
@@ -1843,7 +1833,7 @@ namespace SharpGL
             Delegates.glMinSampleShading(value);
         }
 
-        public static void MultiDrawArrays(BeginMode mode, Int32[] first, Int32[] count, Int32 drawcount)
+        public static void MultiDrawArrays(SharpGL.BeginMode mode, Int32[] first, Int32[] count, Int32 drawcount)
         {
             Delegates.glMultiDrawArrays(mode, first, count, drawcount);
         }
@@ -1853,22 +1843,22 @@ namespace SharpGL
             Delegates.glMultiDrawArraysIndirect(mode, indirect, drawcount, stride);
         }
 
-        public static void MultiDrawElements(BeginMode mode, Int32[] count, DrawElementsType type, IntPtr indices, Int32 drawcount)
+        public static void MultiDrawElements(SharpGL.BeginMode mode, Int32[] count, SharpGL.DrawElementsType type, IntPtr indices, Int32 drawcount)
         {
             Delegates.glMultiDrawElements(mode, count, type, indices, drawcount);
         }
 
-        public static void MultiDrawElementsBaseVertex(BeginMode mode, Int32[] count, DrawElementsType type, IntPtr indices, Int32 drawcount, Int32[] basevertex)
+        public static void MultiDrawElementsBaseVertex(SharpGL.BeginMode mode, Int32[] count, SharpGL.DrawElementsType type, IntPtr indices, Int32 drawcount, Int32[] basevertex)
         {
             Delegates.glMultiDrawElementsBaseVertex(mode, count, type, indices, drawcount, basevertex);
         }
 
-        public static void MultiDrawElementsIndirect(BeginMode mode, DrawElementsType type, IntPtr indirect, Int32 drawcount, Int32 stride)
+        public static void MultiDrawElementsIndirect(SharpGL.BeginMode mode, SharpGL.DrawElementsType type, IntPtr indirect, Int32 drawcount, Int32 stride)
         {
             Delegates.glMultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
         }
 
-        public static void ObjectLabel(ObjectLabel identifier, UInt32 name, Int32 length, String label)
+        public static void ObjectLabel(SharpGL.ObjectLabel identifier, UInt32 name, Int32 length, String label)
         {
             Delegates.glObjectLabel(identifier, name, length, label);
         }
@@ -1888,22 +1878,22 @@ namespace SharpGL
             Delegates.glPatchParameterfv(pname, values);
         }
 
-        public static void PixelStoref(PixelStoreParameter pname, Single param)
+        public static void PixelStoref(SharpGL.PixelStoreParameter pname, Single param)
         {
             Delegates.glPixelStoref(pname, param);
         }
 
-        public static void PixelStorei(PixelStoreParameter pname, Int32 param)
+        public static void PixelStorei(SharpGL.PixelStoreParameter pname, Int32 param)
         {
             Delegates.glPixelStorei(pname, param);
         }
 
-        public static void PointParameterf(PointParameterName pname, Single param)
+        public static void PointParameterf(SharpGL.PointParameterName pname, Single param)
         {
             Delegates.glPointParameterf(pname, param);
         }
 
-        public static void PointParameteri(PointParameterName pname, Int32 param)
+        public static void PointParameteri(SharpGL.PointParameterName pname, Int32 param)
         {
             Delegates.glPointParameteri(pname, param);
         }
@@ -1923,7 +1913,7 @@ namespace SharpGL
             Delegates.glPointSize(size);
         }
 
-        public static void PolygonMode(MaterialFace face, PolygonMode mode)
+        public static void PolygonMode(SharpGL.MaterialFace face, SharpGL.PolygonMode mode)
         {
             Delegates.glPolygonMode(face, mode);
         }
@@ -1943,7 +1933,7 @@ namespace SharpGL
             Delegates.glProgramBinary(program, binaryFormat, binary, length);
         }
 
-        public static void ProgramParameteri(UInt32 program, Version32 pname, Int32 value)
+        public static void ProgramParameteri(UInt32 program, SharpGL.Version32 pname, Int32 value)
         {
             Delegates.glProgramParameteri(program, pname, value);
         }
@@ -2113,52 +2103,52 @@ namespace SharpGL
             Delegates.glProgramUniformMatrix4x3fv(program, location, count, transpose, value);
         }
 
-        public static void ProvokingVertex(ProvokingVertexMode provokeMode)
+        public static void ProvokingVertex(SharpGL.ProvokingVertexMode provokeMode)
         {
             Delegates.glProvokingVertex(provokeMode);
         }
 
-        public static void QueryCounter(UInt32 id, Int32 target)
+        public static void QueryCounter(UInt32 id, SharpGL.QueryTarget target)
         {
             Delegates.glQueryCounter(id, target);
         }
 
-        public static void ReadBuffer(ReadBufferMode mode)
+        public static void ReadBuffer(SharpGL.ReadBufferMode mode)
         {
             Delegates.glReadBuffer(mode);
         }
 
-        public static void NamedFramebufferReadBuffer(UInt32 framebuffer, BeginMode mode)
+        public static void NamedFramebufferReadBuffer(ReadBufferMode framebuffer, BeginMode mode)
         {
             Delegates.glNamedFramebufferReadBuffer(framebuffer, mode);
         }
 
-        public static void ReadPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelFormat format, PixelType type, Int32[] data)
+        public static void ReadPixels(Int32 x, Int32 y, Int32 width, Int32 height, SharpGL.PixelFormat format, SharpGL.PixelType type, Int32[] data)
         {
             Delegates.glReadPixels(x, y, width, height, format, type, data);
         }
 
-        public static void ReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, PixelFormat format, PixelType type, Int32 bufSize, Int32[] data)
+        public static void ReadnPixels(Int32 x, Int32 y, Int32 width, Int32 height, SharpGL.PixelFormat format, SharpGL.PixelType type, Int32 bufSize, Int32[] data)
         {
             Delegates.glReadnPixels(x, y, width, height, format, type, bufSize, data);
         }
 
-        public static void RenderbufferStorage(RenderbufferTarget target, RenderbufferStorage internalFormat, Int32 width, Int32 height)
+        public static void RenderbufferStorage(SharpGL.RenderbufferTarget target, SharpGL.RenderbufferStorage internalFormat, Int32 width, Int32 height)
         {
             Delegates.glRenderbufferStorage(target, internalFormat, width, height);
         }
 
-        public static void NamedRenderbufferStorage(UInt32 renderbuffer, RenderbufferStorage internalFormat, Int32 width, Int32 height)
+        public static void NamedRenderbufferStorage(UInt32 renderbuffer, SharpGL.RenderbufferStorage internalFormat, Int32 width, Int32 height)
         {
             Delegates.glNamedRenderbufferStorage(renderbuffer, internalFormat, width, height);
         }
 
-        public static void RenderbufferStorageMultisample(RenderbufferTarget target, Int32 samples, RenderbufferStorage internalFormat, Int32 width, Int32 height)
+        public static void RenderbufferStorageMultisample(SharpGL.RenderbufferTarget target, Int32 samples, SharpGL.RenderbufferStorage internalFormat, Int32 width, Int32 height)
         {
             Delegates.glRenderbufferStorageMultisample(target, samples, internalFormat, width, height);
         }
 
-        public static void NamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, RenderbufferStorage internalFormat, Int32 width, Int32 height)
+        public static void NamedRenderbufferStorageMultisample(UInt32 renderbuffer, Int32 samples, SharpGL.RenderbufferStorage internalFormat, Int32 width, Int32 height)
         {
             Delegates.glNamedRenderbufferStorageMultisample(renderbuffer, samples, internalFormat, width, height);
         }
@@ -2173,22 +2163,22 @@ namespace SharpGL
             Delegates.glSampleMaski(maskNumber, mask);
         }
 
-        public static void SamplerParameterf(UInt32 sampler, Int32 pname, Single param)
+        public static void SamplerParameterf(UInt32 sampler, TextureParameterName pname, Single param)
         {
             Delegates.glSamplerParameterf(sampler, pname, param);
         }
 
-        public static void SamplerParameteri(UInt32 sampler, Int32 pname, Int32 param)
+        public static void SamplerParameteri(UInt32 sampler, TextureParameterName pname, Int32 param)
         {
             Delegates.glSamplerParameteri(sampler, pname, param);
         }
 
-        public static void SamplerParameterfv(UInt32 sampler, Int32 pname, Single[] @params)
+        public static void SamplerParameterfv(UInt32 sampler, TextureParameterName pname, Single[] @params)
         {
             Delegates.glSamplerParameterfv(sampler, pname, @params);
         }
 
-        public static void SamplerParameteriv(UInt32 sampler, Int32 pname, Int32[] @params)
+        public static void SamplerParameteriv(UInt32 sampler, TextureParameterName pname, Int32[] @params)
         {
             Delegates.glSamplerParameteriv(sampler, pname, @params);
         }
@@ -2238,12 +2228,12 @@ namespace SharpGL
             Delegates.glShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding);
         }
 
-        public static void StencilFunc(StencilFunction func, Int32 @ref, UInt32 mask)
+        public static void StencilFunc(SharpGL.StencilFunction func, Int32 @ref, UInt32 mask)
         {
             Delegates.glStencilFunc(func, @ref, mask);
         }
 
-        public static void StencilFuncSeparate(StencilFace face, StencilFunction func, Int32 @ref, UInt32 mask)
+        public static void StencilFuncSeparate(SharpGL.StencilFace face, SharpGL.StencilFunction func, Int32 @ref, UInt32 mask)
         {
             Delegates.glStencilFuncSeparate(face, func, @ref, mask);
         }
@@ -2253,27 +2243,27 @@ namespace SharpGL
             Delegates.glStencilMask(mask);
         }
 
-        public static void StencilMaskSeparate(StencilFace face, UInt32 mask)
+        public static void StencilMaskSeparate(SharpGL.StencilFace face, UInt32 mask)
         {
             Delegates.glStencilMaskSeparate(face, mask);
         }
 
-        public static void StencilOp(StencilOp sfail, StencilOp dpfail, StencilOp dppass)
+        public static void StencilOp(SharpGL.StencilOp sfail, SharpGL.StencilOp dpfail, SharpGL.StencilOp dppass)
         {
             Delegates.glStencilOp(sfail, dpfail, dppass);
         }
 
-        public static void StencilOpSeparate(StencilFace face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
+        public static void StencilOpSeparate(SharpGL.StencilFace face, SharpGL.StencilOp sfail, SharpGL.StencilOp dpfail, SharpGL.StencilOp dppass)
         {
             Delegates.glStencilOpSeparate(face, sfail, dpfail, dppass);
         }
 
-        public static void TexBuffer(TextureBufferTarget target, SizedInternalFormat internalFormat, UInt32 buffer)
+        public static void TexBuffer(SharpGL.TextureBufferTarget target, SharpGL.SizedInternalFormat internalFormat, UInt32 buffer)
         {
             Delegates.glTexBuffer(target, internalFormat, buffer);
         }
 
-        public static void TextureBuffer(UInt32 texture, SizedInternalFormat internalFormat, UInt32 buffer)
+        public static void TextureBuffer(UInt32 texture, SharpGL.SizedInternalFormat internalFormat, UInt32 buffer)
         {
             Delegates.glTextureBuffer(texture, internalFormat, buffer);
         }
@@ -2288,37 +2278,37 @@ namespace SharpGL
             Delegates.glTextureBufferRange(texture, internalFormat, buffer, offset, size);
         }
 
-        public static void TexImage1D(TextureTarget target, Int32 level, PixelInternalFormat internalFormat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr data)
+        public static void TexImage1D(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelInternalFormat internalFormat, Int32 width, Int32 border, SharpGL.PixelFormat format, SharpGL.PixelType type, IntPtr data)
         {
             Delegates.glTexImage1D(target, level, internalFormat, width, border, format, type, data);
         }
 
-        public static void TexImage2D(TextureTarget target, Int32 level, PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr data)
+        public static void TexImage2D(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 border, SharpGL.PixelFormat format, SharpGL.PixelType type, IntPtr data)
         {
             Delegates.glTexImage2D(target, level, internalFormat, width, height, border, format, type, data);
         }
 
-        public static void TexImage2DMultisample(TextureTargetMultisample target, Int32 samples, PixelInternalFormat internalFormat, Int32 width, Int32 height, Boolean fixedsamplelocations)
+        public static void TexImage2DMultisample(SharpGL.TextureTargetMultisample target, Int32 samples, SharpGL.PixelInternalFormat internalFormat, Int32 width, Int32 height, Boolean fixedsamplelocations)
         {
             Delegates.glTexImage2DMultisample(target, samples, internalFormat, width, height, fixedsamplelocations);
         }
 
-        public static void TexImage3D(TextureTarget target, Int32 level, PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr data)
+        public static void TexImage3D(SharpGL.TextureTarget target, Int32 level, SharpGL.PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Int32 border, SharpGL.PixelFormat format, SharpGL.PixelType type, IntPtr data)
         {
             Delegates.glTexImage3D(target, level, internalFormat, width, height, depth, border, format, type, data);
         }
 
-        public static void TexImage3DMultisample(TextureTargetMultisample target, Int32 samples, PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Boolean fixedsamplelocations)
+        public static void TexImage3DMultisample(SharpGL.TextureTargetMultisample target, Int32 samples, SharpGL.PixelInternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Boolean fixedsamplelocations)
         {
             Delegates.glTexImage3DMultisample(target, samples, internalFormat, width, height, depth, fixedsamplelocations);
         }
 
-        public static void TexParameterf(TextureTarget target, TextureParameterName pname, Single param)
+        public static void TexParameterf(SharpGL.TextureTarget target, TextureParameterName pname, Single param)
         {
             Delegates.glTexParameterf(target, pname, param);
         }
 
-        public static void TexParameteri(TextureTarget target, TextureParameterName pname, Int32 param)
+        public static void TexParameteri(SharpGL.TextureTarget target, TextureParameterName pname, Int32 param)
         {
             Delegates.glTexParameteri(target, pname, param);
         }
@@ -2333,12 +2323,12 @@ namespace SharpGL
             Delegates.glTextureParameteri(texture, pname, param);
         }
 
-        public static void TexParameterfv(TextureTarget target, TextureParameterName pname, Single[] @params)
+        public static void TexParameterfv(SharpGL.TextureTarget target, TextureParameterName pname, Single[] @params)
         {
             Delegates.glTexParameterfv(target, pname, @params);
         }
 
-        public static void TexParameteriv(TextureTarget target, TextureParameterName pname, Int32[] @params)
+        public static void TexParameteriv(SharpGL.TextureTarget target, TextureParameterName pname, Int32[] @params)
         {
             Delegates.glTexParameteriv(target, pname, @params);
         }
@@ -2423,7 +2413,7 @@ namespace SharpGL
             Delegates.glTextureStorage3DMultisample(texture, samples, internalFormat, width, height, depth, fixedsamplelocations);
         }
 
-        public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
+        public static void TexSubImage1D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 width, SharpGL.PixelFormat format, SharpGL.PixelType type, IntPtr pixels)
         {
             Delegates.glTexSubImage1D(target, level, xoffset, width, format, type, pixels);
         }
@@ -2433,7 +2423,7 @@ namespace SharpGL
             Delegates.glTextureSubImage1D(texture, level, xoffset, width, format, type, pixels);
         }
 
-        public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
+        public static void TexSubImage2D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, SharpGL.PixelFormat format, SharpGL.PixelType type, IntPtr pixels)
         {
             Delegates.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
         }
@@ -2443,7 +2433,7 @@ namespace SharpGL
             Delegates.glTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels);
         }
 
-        public static void TexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
+        public static void TexSubImage3D(SharpGL.TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, SharpGL.PixelFormat format, SharpGL.PixelType type, IntPtr pixels)
         {
             Delegates.glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
         }
@@ -2473,7 +2463,7 @@ namespace SharpGL
             Delegates.glTransformFeedbackBufferRange(xfb, index, buffer, offset, size);
         }
 
-        public static void TransformFeedbackVaryings(UInt32 program, Int32 count, String[] varyings, TransformFeedbackMode bufferMode)
+        public static void TransformFeedbackVaryings(UInt32 program, Int32 count, String[] varyings, SharpGL.TransformFeedbackMode bufferMode)
         {
             Delegates.glTransformFeedbackVaryings(program, count, varyings, bufferMode);
         }
@@ -2653,7 +2643,7 @@ namespace SharpGL
             Delegates.glUniformSubroutinesuiv(shadertype, count, indices);
         }
 
-        public static Boolean UnmapBuffer(BufferTarget target)
+        public static Boolean UnmapBuffer(SharpGL.BufferTarget target)
         {
             return Delegates.glUnmapBuffer(target);
         }
@@ -2665,11 +2655,13 @@ namespace SharpGL
 
         public static void UseProgram(UInt32 program)
         {
+            GL.currentProgram = program;
             Delegates.glUseProgram(program);
         }
 
         public static void UseProgramStages(UInt32 pipeline, UInt32 stages, UInt32 program)
         {
+            GL.currentProgram = program;
             Delegates.glUseProgramStages(pipeline, stages, program);
         }
 
@@ -2695,7 +2687,7 @@ namespace SharpGL
 
         public static void VertexAttrib1f(Int32 index, Single v0)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib1f((UInt32)index, v0);
         }
 
@@ -2706,7 +2698,7 @@ namespace SharpGL
 
         public static void VertexAttrib1s(Int32 index, Int16 v0)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib1s((UInt32)index, v0);
         }
 
@@ -2717,7 +2709,7 @@ namespace SharpGL
 
         public static void VertexAttrib1d(Int32 index, Double v0)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib1d((UInt32)index, v0);
         }
 
@@ -2728,7 +2720,7 @@ namespace SharpGL
 
         public static void VertexAttribI1i(Int32 index, Int32 v0)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI1i((UInt32)index, v0);
         }
 
@@ -2739,7 +2731,7 @@ namespace SharpGL
 
         public static void VertexAttribI1ui(Int32 index, UInt32 v0)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI1ui((UInt32)index, v0);
         }
 
@@ -2750,7 +2742,7 @@ namespace SharpGL
 
         public static void VertexAttrib2f(Int32 index, Single v0, Single v1)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib2f((UInt32)index, v0, v1);
         }
 
@@ -2761,7 +2753,7 @@ namespace SharpGL
 
         public static void VertexAttrib2s(Int32 index, Int16 v0, Int16 v1)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib2s((UInt32)index, v0, v1);
         }
 
@@ -2772,7 +2764,7 @@ namespace SharpGL
 
         public static void VertexAttrib2d(Int32 index, Double v0, Double v1)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib2d((UInt32)index, v0, v1);
         }
 
@@ -2783,7 +2775,7 @@ namespace SharpGL
 
         public static void VertexAttribI2i(Int32 index, Int32 v0, Int32 v1)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI2i((UInt32)index, v0, v1);
         }
 
@@ -2794,7 +2786,7 @@ namespace SharpGL
 
         public static void VertexAttribI2ui(Int32 index, UInt32 v0, UInt32 v1)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI2ui((UInt32)index, v0, v1);
         }
 
@@ -2805,7 +2797,7 @@ namespace SharpGL
 
         public static void VertexAttrib3f(Int32 index, Single v0, Single v1, Single v2)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib3f((UInt32)index, v0, v1, v2);
         }
 
@@ -2816,7 +2808,7 @@ namespace SharpGL
 
         public static void VertexAttrib3s(Int32 index, Int16 v0, Int16 v1, Int16 v2)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib3s((UInt32)index, v0, v1, v2);
         }
 
@@ -2827,7 +2819,7 @@ namespace SharpGL
 
         public static void VertexAttrib3d(Int32 index, Double v0, Double v1, Double v2)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib3d((UInt32)index, v0, v1, v2);
         }
 
@@ -2838,7 +2830,7 @@ namespace SharpGL
 
         public static void VertexAttribI3i(Int32 index, Int32 v0, Int32 v1, Int32 v2)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI3i((UInt32)index, v0, v1, v2);
         }
 
@@ -2849,7 +2841,7 @@ namespace SharpGL
 
         public static void VertexAttribI3ui(Int32 index, UInt32 v0, UInt32 v1, UInt32 v2)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI3ui((UInt32)index, v0, v1, v2);
         }
 
@@ -2860,7 +2852,7 @@ namespace SharpGL
 
         public static void VertexAttrib4f(Int32 index, Single v0, Single v1, Single v2, Single v3)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4f((UInt32)index, v0, v1, v2, v3);
         }
 
@@ -2871,7 +2863,7 @@ namespace SharpGL
 
         public static void VertexAttrib4s(Int32 index, Int16 v0, Int16 v1, Int16 v2, Int16 v3)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4s((UInt32)index, v0, v1, v2, v3);
         }
 
@@ -2882,7 +2874,7 @@ namespace SharpGL
 
         public static void VertexAttrib4d(Int32 index, Double v0, Double v1, Double v2, Double v3)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4d((UInt32)index, v0, v1, v2, v3);
         }
 
@@ -2893,7 +2885,7 @@ namespace SharpGL
 
         public static void VertexAttrib4Nub(Int32 index, Byte v0, Byte v1, Byte v2, Byte v3)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4Nub((UInt32)index, v0, v1, v2, v3);
         }
 
@@ -2904,7 +2896,7 @@ namespace SharpGL
 
         public static void VertexAttribI4i(Int32 index, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI4i((UInt32)index, v0, v1, v2, v3);
         }
 
@@ -2915,7 +2907,7 @@ namespace SharpGL
 
         public static void VertexAttribI4ui(Int32 index, UInt32 v0, UInt32 v1, UInt32 v2, UInt32 v3)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI4ui((UInt32)index, v0, v1, v2, v3);
         }
 
@@ -2926,7 +2918,7 @@ namespace SharpGL
 
         public static void VertexAttribL1d(Int32 index, Double v0)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribL1d((UInt32)index, v0);
         }
 
@@ -2937,7 +2929,7 @@ namespace SharpGL
 
         public static void VertexAttribL2d(Int32 index, Double v0, Double v1)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribL2d((UInt32)index, v0, v1);
         }
 
@@ -2948,7 +2940,7 @@ namespace SharpGL
 
         public static void VertexAttribL3d(Int32 index, Double v0, Double v1, Double v2)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribL3d((UInt32)index, v0, v1, v2);
         }
 
@@ -2959,7 +2951,7 @@ namespace SharpGL
 
         public static void VertexAttribL4d(Int32 index, Double v0, Double v1, Double v2, Double v3)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribL4d((UInt32)index, v0, v1, v2, v3);
         }
 
@@ -2970,7 +2962,7 @@ namespace SharpGL
 
         public static void VertexAttrib1fv(Int32 index, Single[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib1fv((UInt32)index, v);
         }
 
@@ -2981,7 +2973,7 @@ namespace SharpGL
 
         public static void VertexAttrib1sv(Int32 index, Int16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib1sv((UInt32)index, v);
         }
 
@@ -2992,7 +2984,7 @@ namespace SharpGL
 
         public static void VertexAttrib1dv(Int32 index, Double[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib1dv((UInt32)index, v);
         }
 
@@ -3003,7 +2995,7 @@ namespace SharpGL
 
         public static void VertexAttribI1iv(Int32 index, Int32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI1iv((UInt32)index, v);
         }
 
@@ -3014,7 +3006,7 @@ namespace SharpGL
 
         public static void VertexAttribI1uiv(Int32 index, UInt32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI1uiv((UInt32)index, v);
         }
 
@@ -3025,7 +3017,7 @@ namespace SharpGL
 
         public static void VertexAttrib2fv(Int32 index, Single[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib2fv((UInt32)index, v);
         }
 
@@ -3036,7 +3028,7 @@ namespace SharpGL
 
         public static void VertexAttrib2sv(Int32 index, Int16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib2sv((UInt32)index, v);
         }
 
@@ -3047,7 +3039,7 @@ namespace SharpGL
 
         public static void VertexAttrib2dv(Int32 index, Double[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib2dv((UInt32)index, v);
         }
 
@@ -3058,7 +3050,7 @@ namespace SharpGL
 
         public static void VertexAttribI2iv(Int32 index, Int32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI2iv((UInt32)index, v);
         }
 
@@ -3069,7 +3061,7 @@ namespace SharpGL
 
         public static void VertexAttribI2uiv(Int32 index, UInt32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI2uiv((UInt32)index, v);
         }
 
@@ -3080,7 +3072,7 @@ namespace SharpGL
 
         public static void VertexAttrib3fv(Int32 index, Single[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib3fv((UInt32)index, v);
         }
 
@@ -3091,7 +3083,7 @@ namespace SharpGL
 
         public static void VertexAttrib3sv(Int32 index, Int16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib3sv((UInt32)index, v);
         }
 
@@ -3102,7 +3094,7 @@ namespace SharpGL
 
         public static void VertexAttrib3dv(Int32 index, Double[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib3dv((UInt32)index, v);
         }
 
@@ -3113,7 +3105,7 @@ namespace SharpGL
 
         public static void VertexAttribI3iv(Int32 index, Int32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI3iv((UInt32)index, v);
         }
 
@@ -3124,7 +3116,7 @@ namespace SharpGL
 
         public static void VertexAttribI3uiv(Int32 index, UInt32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI3uiv((UInt32)index, v);
         }
 
@@ -3135,7 +3127,7 @@ namespace SharpGL
 
         public static void VertexAttrib4fv(Int32 index, Single[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4fv((UInt32)index, v);
         }
 
@@ -3146,7 +3138,7 @@ namespace SharpGL
 
         public static void VertexAttrib4sv(Int32 index, Int16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4sv((UInt32)index, v);
         }
 
@@ -3157,7 +3149,7 @@ namespace SharpGL
 
         public static void VertexAttrib4dv(Int32 index, Double[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4dv((UInt32)index, v);
         }
 
@@ -3168,7 +3160,7 @@ namespace SharpGL
 
         public static void VertexAttrib4iv(Int32 index, Int32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4iv((UInt32)index, v);
         }
 
@@ -3179,7 +3171,7 @@ namespace SharpGL
 
         public static void VertexAttrib4bv(Int32 index, SByte[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4bv((UInt32)index, v);
         }
 
@@ -3190,7 +3182,7 @@ namespace SharpGL
 
         public static void VertexAttrib4ubv(Int32 index, Byte[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4ubv((UInt32)index, v);
         }
 
@@ -3201,7 +3193,7 @@ namespace SharpGL
 
         public static void VertexAttrib4usv(Int32 index, UInt16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4usv((UInt32)index, v);
         }
 
@@ -3212,7 +3204,7 @@ namespace SharpGL
 
         public static void VertexAttrib4uiv(Int32 index, UInt32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4uiv((UInt32)index, v);
         }
 
@@ -3223,7 +3215,7 @@ namespace SharpGL
 
         public static void VertexAttrib4Nbv(Int32 index, SByte[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4Nbv((UInt32)index, v);
         }
 
@@ -3234,7 +3226,7 @@ namespace SharpGL
 
         public static void VertexAttrib4Nsv(Int32 index, Int16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4Nsv((UInt32)index, v);
         }
 
@@ -3245,7 +3237,7 @@ namespace SharpGL
 
         public static void VertexAttrib4Niv(Int32 index, Int32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4Niv((UInt32)index, v);
         }
 
@@ -3256,7 +3248,7 @@ namespace SharpGL
 
         public static void VertexAttrib4Nubv(Int32 index, Byte[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4Nubv((UInt32)index, v);
         }
 
@@ -3267,7 +3259,7 @@ namespace SharpGL
 
         public static void VertexAttrib4Nusv(Int32 index, UInt16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4Nusv((UInt32)index, v);
         }
 
@@ -3278,7 +3270,7 @@ namespace SharpGL
 
         public static void VertexAttrib4Nuiv(Int32 index, UInt32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttrib4Nuiv((UInt32)index, v);
         }
 
@@ -3289,7 +3281,7 @@ namespace SharpGL
 
         public static void VertexAttribI4bv(Int32 index, SByte[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI4bv((UInt32)index, v);
         }
 
@@ -3300,7 +3292,7 @@ namespace SharpGL
 
         public static void VertexAttribI4ubv(Int32 index, Byte[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI4ubv((UInt32)index, v);
         }
 
@@ -3311,7 +3303,7 @@ namespace SharpGL
 
         public static void VertexAttribI4sv(Int32 index, Int16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI4sv((UInt32)index, v);
         }
 
@@ -3322,7 +3314,7 @@ namespace SharpGL
 
         public static void VertexAttribI4usv(Int32 index, UInt16[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI4usv((UInt32)index, v);
         }
 
@@ -3333,7 +3325,7 @@ namespace SharpGL
 
         public static void VertexAttribI4iv(Int32 index, Int32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI4iv((UInt32)index, v);
         }
 
@@ -3344,7 +3336,7 @@ namespace SharpGL
 
         public static void VertexAttribI4uiv(Int32 index, UInt32[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribI4uiv((UInt32)index, v);
         }
 
@@ -3355,7 +3347,7 @@ namespace SharpGL
 
         public static void VertexAttribL1dv(Int32 index, Double[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribL1dv((UInt32)index, v);
         }
 
@@ -3366,7 +3358,7 @@ namespace SharpGL
 
         public static void VertexAttribL2dv(Int32 index, Double[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribL2dv((UInt32)index, v);
         }
 
@@ -3377,7 +3369,7 @@ namespace SharpGL
 
         public static void VertexAttribL3dv(Int32 index, Double[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribL3dv((UInt32)index, v);
         }
 
@@ -3388,7 +3380,7 @@ namespace SharpGL
 
         public static void VertexAttribL4dv(Int32 index, Double[] v)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribL4dv((UInt32)index, v);
         }
 
@@ -3399,7 +3391,7 @@ namespace SharpGL
 
         public static void VertexAttribP1ui(Int32 index, VertexAttribPType type, Boolean normalized, UInt32 value)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribP1ui((UInt32)index, type, normalized, value);
         }
 
@@ -3410,7 +3402,7 @@ namespace SharpGL
 
         public static void VertexAttribP2ui(Int32 index, VertexAttribPType type, Boolean normalized, UInt32 value)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribP2ui((UInt32)index, type, normalized, value);
         }
 
@@ -3421,7 +3413,7 @@ namespace SharpGL
 
         public static void VertexAttribP3ui(Int32 index, VertexAttribPType type, Boolean normalized, UInt32 value)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribP3ui((UInt32)index, type, normalized, value);
         }
 
@@ -3432,7 +3424,7 @@ namespace SharpGL
 
         public static void VertexAttribP4ui(Int32 index, VertexAttribPType type, Boolean normalized, UInt32 value)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribP4ui((UInt32)index, type, normalized, value);
         }
 
@@ -3453,48 +3445,48 @@ namespace SharpGL
 
         public static void VertexAttribDivisor(Int32 index, UInt32 divisor)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribDivisor((UInt32)index, divisor);
         }
 
-        public static void VertexAttribFormat(UInt32 attribindex, Int32 size, VertexAttribFormat type, Boolean normalized, UInt32 relativeoffset)
+        public static void VertexAttribFormat(UInt32 attribindex, Int32 size, SharpGL.VertexAttribFormat type, Boolean normalized, UInt32 relativeoffset)
         {
             Delegates.glVertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
         }
 
-        public static void VertexAttribIFormat(UInt32 attribindex, Int32 size, VertexAttribFormat type, UInt32 relativeoffset)
+        public static void VertexAttribIFormat(UInt32 attribindex, Int32 size, SharpGL.VertexAttribFormat type, UInt32 relativeoffset)
         {
             Delegates.glVertexAttribIFormat(attribindex, size, type, relativeoffset);
         }
 
-        public static void VertexAttribLFormat(UInt32 attribindex, Int32 size, VertexAttribFormat type, UInt32 relativeoffset)
+        public static void VertexAttribLFormat(UInt32 attribindex, Int32 size, SharpGL.VertexAttribFormat type, UInt32 relativeoffset)
         {
             Delegates.glVertexAttribLFormat(attribindex, size, type, relativeoffset);
         }
 
-        public static void VertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribFormat type, Boolean normalized, UInt32 relativeoffset)
+        public static void VertexArrayAttribFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, SharpGL.VertexAttribFormat type, Boolean normalized, UInt32 relativeoffset)
         {
             Delegates.glVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
         }
 
-        public static void VertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribFormat type, UInt32 relativeoffset)
+        public static void VertexArrayAttribIFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, SharpGL.VertexAttribFormat type, UInt32 relativeoffset)
         {
             Delegates.glVertexArrayAttribIFormat(vaobj, attribindex, size, type, relativeoffset);
         }
 
-        public static void VertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, VertexAttribFormat type, UInt32 relativeoffset)
+        public static void VertexArrayAttribLFormat(UInt32 vaobj, UInt32 attribindex, Int32 size, SharpGL.VertexAttribFormat type, UInt32 relativeoffset)
         {
             Delegates.glVertexArrayAttribLFormat(vaobj, attribindex, size, type, relativeoffset);
         }
 
-        public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribPointerType type, Boolean normalized, Int32 stride, IntPtr pointer)
+        public static void VertexAttribPointer(UInt32 index, Int32 size, SharpGL.VertexAttribPointerType type, Boolean normalized, Int32 stride, IntPtr pointer)
         {
             Delegates.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
         }
 
-        public static void VertexAttribPointer(Int32 index, Int32 size, VertexAttribPointerType type, Boolean normalized, Int32 stride, IntPtr pointer)
+        public static void VertexAttribPointer(Int32 index, Int32 size, SharpGL.VertexAttribPointerType type, Boolean normalized, Int32 stride, IntPtr pointer)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribPointer((UInt32)index, size, type, normalized, stride, pointer);
         }
 
@@ -3505,7 +3497,7 @@ namespace SharpGL
 
         public static void VertexAttribIPointer(Int32 index, Int32 size, VertexAttribPointerType type, Int32 stride, IntPtr pointer)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribIPointer((UInt32)index, size, type, stride, pointer);
         }
 
@@ -3516,7 +3508,7 @@ namespace SharpGL
 
         public static void VertexAttribLPointer(Int32 index, Int32 size, VertexAttribPointerType type, Int32 stride, IntPtr pointer)
         {
-            if (index < 0) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index < 0) throw new ArgumentOutOfRangeException("index");
             Delegates.glVertexAttribLPointer((UInt32)index, size, type, stride, pointer);
         }
 
@@ -3554,5 +3546,6 @@ namespace SharpGL
         {
             Delegates.glWaitSync(sync, flags, timeout);
         }
+
     }
 }

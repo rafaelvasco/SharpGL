@@ -6,6 +6,7 @@ namespace SharpGL
     public partial class GL
     {
         private static readonly uint[] uintAuxArray = new uint[1];
+        private static uint currentProgram = 0;
 
         public static uint GenBuffer()
         {

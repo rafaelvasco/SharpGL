@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpGL", "SharpGL\SharpGL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpGL.Test", "SharpGL.Test\SharpGL.Test.csproj", "{9DDF0BD1-AB42-4346-96B9-8B38C5182B99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpGL.CoreGenerator", "SharpGL.CoreGenerator\SharpGL.CoreGenerator.csproj", "{E614981D-3E32-4874-9D49-48C2D81A9C5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpGL.LibraryGenerator", "SharpGL.LibraryGenerator\SharpGL.LibraryGenerator.csproj", "{36918415-A1A6-4E4A-B2D0-94A70B6A7DD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{9DDF0BD1-AB42-4346-96B9-8B38C5182B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DDF0BD1-AB42-4346-96B9-8B38C5182B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DDF0BD1-AB42-4346-96B9-8B38C5182B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E614981D-3E32-4874-9D49-48C2D81A9C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E614981D-3E32-4874-9D49-48C2D81A9C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E614981D-3E32-4874-9D49-48C2D81A9C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E614981D-3E32-4874-9D49-48C2D81A9C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36918415-A1A6-4E4A-B2D0-94A70B6A7DD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36918415-A1A6-4E4A-B2D0-94A70B6A7DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36918415-A1A6-4E4A-B2D0-94A70B6A7DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36918415-A1A6-4E4A-B2D0-94A70B6A7DD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
